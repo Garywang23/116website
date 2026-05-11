@@ -6,11 +6,11 @@
   <title>116瀵艰埅</title>
   <meta
     name="description"
-    content="116瀵艰埅锛屾寜褰撳墠鍏紑鍏ㄧ悆楂樻祦閲忕綉绔欐暣鐞嗙殑鍓?16鍚嶇綉鍧€瀵艰埅锛岃鐩栨悳绱€佽棰戙€佺ぞ浜ゃ€丄I銆佽喘鐗┿€佺數鍟嗐€佹柊闂汇€佸紑鍙戙€佽璁°€侀煶涔愩€佹暀鑲蹭笌绉戞妧鍏徃銆?
+    content="116瀵艰埅锛屾寜褰撳墠鍏紑鐨勫叏鐞冮珮娴侀噺缃戠珯鏁寸悊涓哄墠116鍚嶇綉鍧€瀵艰埅锛岃鐩栨悳绱㈠紩鎿庛€佽棰戙€佺ぞ浜ゅ獟浣撱€丄I宸ュ叿銆佽喘鐗╃數鍟嗐€佹柊闂昏祫璁€佸紑鍙戞妧鏈€佽璁＄礌鏉愩€侀煶涔愩€佹暀鑲层€佺鎶€鍏徃绛夊垎绫汇€?
   />
   <meta
     name="keywords"
-    content="116瀵艰埅, 鍏ㄧ悆缃戠珯瀵艰埅, 鍏ㄧ悆鍓?16鍚嶇綉绔? 缃戝潃瀵艰埅, 鎼滅储寮曟搸, 瑙嗛缃戠珯, 绀句氦濯掍綋, AI宸ュ叿"
+    content="116瀵艰埅, 鍏ㄧ悆鍓?16鍚嶇綉绔? 缃戝潃瀵艰埅, 鎼滅储寮曟搸, 瑙嗛缃戠珯, 绀句氦濯掍綋, AI宸ュ叿, 鐢靛晢缃戠珯"
   />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -40,12 +40,15 @@
     }
 
     body {
-      font-family: "HarmonyOS Sans SC", "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+      font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", "Segoe UI", sans-serif;
       background: var(--bg);
       color: var(--text);
     }
 
-    a { color: inherit; text-decoration: none; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
     .header {
       position: sticky;
@@ -65,37 +68,12 @@
       background: rgba(15, 23, 34, 0.9);
     }
 
-    .logo-wrap {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .logo-mark {
-      width: 38px;
-      height: 38px;
-      border-radius: 12px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, var(--accent), #7b8cff);
-      color: #fff;
-      font-size: 18px;
-      box-shadow: var(--shadow);
-    }
-
     .logo {
       font-size: 34px;
       font-weight: 800;
       line-height: 1;
       letter-spacing: -0.04em;
       color: var(--accent);
-    }
-
-    .header-sub {
-      margin-top: 4px;
-      font-size: 13px;
-      color: var(--sub);
     }
 
     .theme-btn {
@@ -198,7 +176,7 @@
       background: var(--panel);
       border: 1px solid var(--line);
       color: var(--text);
-      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+      transition: transform 0.18s ease, border-color 0.18s ease;
       box-shadow: var(--shadow);
     }
 
@@ -277,7 +255,7 @@
 
     @media (max-width: 768px) {
       .header {
-        padding: 16px 16px;
+        padding: 16px;
       }
 
       .logo {
@@ -311,13 +289,7 @@
 </head>
 <body>
   <header class="header">
-    <div>
-      <div class="logo-wrap">
-        <span class="logo-mark">馃寪</span>
-        <div class="logo">116瀵艰埅</div>
-      </div>
-      <div class="header-sub">鎸夊綋鍓嶅叕寮€鍏ㄧ悆楂樻祦閲忕綉绔欐暣鐞?路 鍏辨敹褰?116 涓珯鐐?/div>
-    </div>
+    <div class="logo">116瀵艰埅</div>
     <button class="theme-btn" id="themeBtn" aria-label="鍒囨崲涓婚">馃寵</button>
   </header>
 
@@ -325,8 +297,8 @@
 
   <main class="container">
     <div class="hero-note">
-      <strong>璇存槑锛?/strong>鏈〉鎸夊綋鍓嶅叕寮€鍏ㄧ悆楂樻祦閲忕綉绔欐暣鐞嗕负 116 涓父鐢ㄥ叆鍙ｏ紝
-      浠ュ鑸娇鐢ㄤ负涓伙紝鎸夌被鍒祻瑙堟洿鐩磋銆傛瘡涓珯鐐瑰墠鍧囨樉绀哄搴旂綉绔?logo銆?    </div>
+      <strong>璇存槑锛?/strong>鏈〉鎸夊綋鍓嶅叕寮€鐨勫叏鐞冮珮娴侀噺缃戠珯鏁寸悊涓哄墠 116 鍚嶅鑸叆鍙ｏ紝
+      瑕嗙洊鎼滅储寮曟搸銆佽棰戙€佺ぞ浜ゅ獟浣撱€丄I 宸ュ叿銆佽喘鐗╃數鍟嗐€佹柊闂昏祫璁€佸紑鍙戞妧鏈€佽璁＄礌鏉愩€侀煶涔愩€佹暀鑲层€佺鎶€鍏徃绛夊垎绫汇€?      姣忎釜绔欑偣鍓嶅潎鏄剧ず瀵瑰簲缃戠珯 logo銆?    </div>
     <div id="main"></div>
   </main>
 
@@ -466,7 +438,6 @@
         const value = category === "鍏ㄩ儴" ? "all" : category;
         html += `<button class="tab ${index === 0 ? "active" : ""}" data-c="${value}">${category}</button>`;
       });
-
       document.getElementById("tabs").innerHTML = html;
 
       document.querySelectorAll(".tab").forEach(tab => {
