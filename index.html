@@ -1,210 +1,534 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Top100导航</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#f0f2f5;--card:#fff;--text:#1a1a2e;--sub:#666;--border:#e8e8e8;--accent:#4361ee;--cat-bg:#f8f9fa}
-[data-theme="dark"]{--bg:#1a1a2e;--card:#16213e;--text:#e0e0e0;--sub:#aaa;--border:#2a2a4a;--accent:#4cc9f0;--cat-bg:#0f3460}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text)}
-.header{background:var(--card);border-bottom:1px solid var(--border);padding:16px 24px;position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
-.logo{font-size:22px;font-weight:700;color:var(--accent)}
-.search input{padding:8px 16px;border:2px solid var(--border);border-radius:20px;font-size:14px;background:var(--bg);color:var(--text);outline:none;width:300px}
-.search input:focus{border-color:var(--accent)}
-.theme-btn{background:var(--bg);border:2px solid var(--border);border-radius:20px;padding:6px 12px;cursor:pointer;font-size:16px}
-.tabs{max-width:1400px;margin:12px auto;padding:0 24px;display:flex;gap:8px;flex-wrap:wrap}
-.tab{padding:5px 14px;border-radius:16px;border:1px solid var(--border);background:var(--card);color:var(--sub);cursor:pointer;font-size:13px}
-.tab.active,.tab:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
-.container{max-width:1400px;margin:0 auto;padding:20px 24px}
-.category{margin-bottom:28px}
-.cat-title{font-size:16px;font-weight:600;margin-bottom:12px;padding:8px 14px;background:var(--cat-bg);border-radius:6px;border-left:4px solid var(--accent)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
-.card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:12px;display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);transition:all .2s}
-.card:hover{transform:translateY(-2px);border-color:var(--accent);box-shadow:0 4px 12px rgba(0,0,0,.08)}
-.icon{width:32px;height:32px;border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:var(--cat-bg);overflow:hidden}
-.icon img{width:24px;height:24px;object-fit:contain}
-.name{font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.desc{font-size:11px;color:var(--sub);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.footer{text-align:center;padding:30px;color:var(--sub);font-size:12px}
-.empty{text-align:center;padding:60px;color:var(--sub)}
-@media(max-width:768px){.search input{width:100%}.header{flex-direction:column}.grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>116瀵艰埅</title>
+  <meta
+    name="description"
+    content="116瀵艰埅锛屾寜褰撳墠鍏紑鍏ㄧ悆楂樻祦閲忕綉绔欐暣鐞嗙殑鍓?16鍚嶇綉鍧€瀵艰埅锛岃鐩栨悳绱€佽棰戙€佺ぞ浜ゃ€丄I銆佽喘鐗┿€佺數鍟嗐€佹柊闂汇€佸紑鍙戙€佽璁°€侀煶涔愩€佹暀鑲蹭笌绉戞妧鍏徃銆?
+  />
+  <meta
+    name="keywords"
+    content="116瀵艰埅, 鍏ㄧ悆缃戠珯瀵艰埅, 鍏ㄧ悆鍓?16鍚嶇綉绔? 缃戝潃瀵艰埅, 鎼滅储寮曟搸, 瑙嗛缃戠珯, 绀句氦濯掍綋, AI宸ュ叿"
+  />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #f3f5f8;
+      --panel: #ffffff;
+      --panel-soft: #f7f9fc;
+      --text: #132238;
+      --sub: #66788a;
+      --line: #dde5ee;
+      --accent: #4263eb;
+      --accent-soft: #eef2ff;
+      --shadow: 0 10px 30px rgba(20, 34, 56, 0.08);
+    }
+
+    [data-theme="dark"] {
+      --bg: #0f1722;
+      --panel: #162131;
+      --panel-soft: #1b2a3f;
+      --text: #edf3ff;
+      --sub: #9fb1c6;
+      --line: #233247;
+      --accent: #6ea8ff;
+      --accent-soft: #1c3155;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+    }
+
+    body {
+      font-family: "HarmonyOS Sans SC", "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 28px;
+      background: rgba(255, 255, 255, 0.92);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+
+    [data-theme="dark"] .header {
+      background: rgba(15, 23, 34, 0.9);
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--accent), #7b8cff);
+      color: #fff;
+      font-size: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .logo {
+      font-size: 34px;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: var(--accent);
+    }
+
+    .header-sub {
+      margin-top: 4px;
+      font-size: 13px;
+      color: var(--sub);
+    }
+
+    .theme-btn {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 10px 14px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .tabs {
+      max-width: 1480px;
+      margin: 14px auto 0;
+      padding: 0 28px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .tab {
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--sub);
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.2s ease;
+    }
+
+    .tab.active,
+    .tab:hover {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .container {
+      max-width: 1480px;
+      margin: 0 auto;
+      padding: 22px 28px 30px;
+    }
+
+    .hero-note {
+      margin-bottom: 20px;
+      padding: 18px 20px;
+      border-radius: 18px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      color: var(--sub);
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    .hero-note strong {
+      color: var(--text);
+    }
+
+    .category {
+      margin-bottom: 28px;
+    }
+
+    .cat-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      padding: 12px 16px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--accent);
+      border-radius: 14px;
+      font-size: 17px;
+      font-weight: 700;
+      box-shadow: var(--shadow);
+    }
+
+    .cat-title span {
+      color: var(--sub);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 82px;
+      padding: 14px;
+      border-radius: 16px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      color: var(--text);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+      box-shadow: var(--shadow);
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+    }
+
+    .rank {
+      min-width: 38px;
+      height: 38px;
+      border-radius: 11px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 11px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--panel-soft);
+      overflow: hidden;
+    }
+
+    .icon img {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+    }
+
+    .meta {
+      min-width: 0;
+    }
+
+    .name {
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.2;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .desc {
+      margin-top: 4px;
+      font-size: 12px;
+      color: var(--sub);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 0 28px 34px;
+      color: var(--sub);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .empty {
+      text-align: center;
+      padding: 60px 0;
+      color: var(--sub);
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        padding: 16px 16px;
+      }
+
+      .logo {
+        font-size: 28px;
+      }
+
+      .tabs,
+      .container,
+      .footer {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      }
+
+      .card {
+        min-height: 76px;
+        padding: 12px;
+      }
+
+      .desc {
+        white-space: normal;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+    }
+  </style>
 </head>
 <body>
-<header class="header">
-<div class="logo">🌐 Top100导航</div>
-<div class="search"><input type="text" id="search" placeholder="搜索网站..." /></div>
-<button class="theme-btn" id="themeBtn">🌙</button>
-</header>
-<div class="tabs" id="tabs"></div>
-<main class="container" id="main"></main>
-<footer class="footer">全球流量Top100网站导航 | 共收录 100 个高权重网站</footer>
-<script>
-var S=[
-["Google","google.com","全球最大搜索引擎","搜索引擎"],
-["Bing","bing.com","微软搜索引擎","搜索引擎"],
-["Yahoo","yahoo.com","雅虎门户搜索","搜索引擎"],
-["Baidu","baidu.com","百度搜索","搜索引擎"],
-["Yandex","yandex.com","俄罗斯搜索引擎","搜索引擎"],
-["DuckDuckGo","duckduckgo.com","隐私搜索引擎","搜索引擎"],
-["YouTube","youtube.com","全球最大视频平台","视频"],
-["Netflix","netflix.com","流媒体影视","视频"],
-["TikTok","tiktok.com","短视频平台","视频"],
-["Twitch","twitch.tv","游戏直播平台","视频"],
-["Bilibili","bilibili.com","B站视频","视频"],
-["Vimeo","vimeo.com","高质量视频","视频"],
-["Disney+","disneyplus.com","迪士尼流媒体","视频"],
-["Dailymotion","dailymotion.com","法国视频平台","视频"],
-["Facebook","facebook.com","全球社交网络","社交媒体"],
-["Instagram","instagram.com","图片社交","社交媒体"],
-["X/Twitter","x.com","实时社交平台","社交媒体"],
-["LinkedIn","linkedin.com","职业社交","社交媒体"],
-["Reddit","reddit.com","社区论坛","社交媒体"],
-["Pinterest","pinterest.com","图片灵感","社交媒体"],
-["Discord","discord.com","社群聊天","社交媒体"],
-["Telegram","telegram.org","加密通讯","社交媒体"],
-["WhatsApp","whatsapp.com","即时通讯","社交媒体"],
-["Snapchat","snapchat.com","阅后即焚","社交媒体"],
-["微博","weibo.com","中国社交媒体","社交媒体"],
-["Quora","quora.com","问答社区","社交媒体"],
-["ChatGPT","openai.com","OpenAI对话AI","AI工具"],
-["Claude","claude.ai","Anthropic AI","AI工具"],
-["Gemini","gemini.google.com","Google AI","AI工具"],
-["Perplexity","perplexity.ai","AI搜索引擎","AI工具"],
-["Midjourney","midjourney.com","AI绘画","AI工具"],
-["DeepSeek","deepseek.com","深度求索AI","AI工具"],
-["Amazon","amazon.com","全球电商巨头","购物电商"],
-["eBay","ebay.com","拍卖电商","购物电商"],
-["AliExpress","aliexpress.com","速卖通","购物电商"],
-["淘宝","taobao.com","中国最大电商","购物电商"],
-["京东","jd.com","京东商城","购物电商"],
-["Shopee","shopee.com","东南亚电商","购物电商"],
-["Walmart","walmart.com","沃尔玛","购物电商"],
-["Etsy","etsy.com","手工艺品","购物电商"],
-["Temu","temu.com","拼多多海外版","购物电商"],
-["Flipkart","flipkart.com","印度电商","购物电商"],
-["CNN","cnn.com","美国有线新闻","新闻资讯"],
-["BBC","bbc.com","英国广播公司","新闻资讯"],
-["纽约时报","nytimes.com","New York Times","新闻资讯"],
-["卫报","theguardian.com","The Guardian","新闻资讯"],
-["路透社","reuters.com","Reuters通讯社","新闻资讯"],
-["Bloomberg","bloomberg.com","彭博财经","新闻资讯"],
-["Forbes","forbes.com","福布斯","新闻资讯"],
-["MSN","msn.com","微软新闻门户","新闻资讯"],
-["Gmail","mail.google.com","谷歌邮箱","工具效率"],
-["Outlook","outlook.live.com","微软邮箱","工具效率"],
-["Google Drive","drive.google.com","谷歌云盘","工具效率"],
-["Notion","notion.so","笔记协作","工具效率"],
-["Canva","canva.com","在线设计","工具效率"],
-["Zoom","zoom.us","视频会议","工具效率"],
-["Dropbox","dropbox.com","云存储","工具效率"],
-["Google Maps","maps.google.com","谷歌地图","工具效率"],
-["Google翻译","translate.google.com","在线翻译","工具效率"],
-["Weather","weather.com","天气预报","工具效率"],
-["GitHub","github.com","代码托管","开发技术"],
-["Stack Overflow","stackoverflow.com","程序员问答","开发技术"],
-["MDN","developer.mozilla.org","Web开发文档","开发技术"],
-["npm","npmjs.com","Node包管理","开发技术"],
-["GitLab","gitlab.com","DevOps平台","开发技术"],
-["W3Schools","w3schools.com","Web教程","开发技术"],
-["CodePen","codepen.io","前端演示","开发技术"],
-["Vercel","vercel.com","前端部署","开发技术"],
-["Wikipedia","wikipedia.org","维基百科","百科知识"],
-["知乎","zhihu.com","中文问答","百科知识"],
-["Fandom","fandom.com","粉丝百科","百科知识"],
-["Medium","medium.com","博客平台","百科知识"],
-["Substack","substack.com","Newsletter","百科知识"],
-["PayPal","paypal.com","在线支付","金融"],
-["Investing","investing.com","投资行情","金融"],
-["Yahoo Finance","finance.yahoo.com","雅虎财经","金融"],
-["CoinMarketCap","coinmarketcap.com","加密货币","金融"],
-["Stripe","stripe.com","支付接口","金融"],
-["Steam","store.steampowered.com","PC游戏平台","游戏"],
-["Epic Games","epicgames.com","游戏商店","游戏"],
-["Roblox","roblox.com","沙盒游戏","游戏"],
-["IGN","ign.com","游戏资讯","游戏"],
-["Figma","figma.com","UI设计工具","设计素材"],
-["Dribbble","dribbble.com","设计师社区","设计素材"],
-["Unsplash","unsplash.com","免费图片","设计素材"],
-["Behance","behance.net","设计社区","设计素材"],
-["Spotify","spotify.com","音乐流媒体","音乐"],
-["SoundCloud","soundcloud.com","音乐分享","音乐"],
-["Apple Music","music.apple.com","苹果音乐","音乐"],
-["Coursera","coursera.org","在线课程","教育"],
-["Khan Academy","khanacademy.org","免费教育","教育"],
-["Udemy","udemy.com","技能课程","教育"],
-["Apple","apple.com","苹果官网","科技公司"],
-["Microsoft","microsoft.com","微软官网","科技公司"],
-["Adobe","adobe.com","创意软件","科技公司"],
-["Samsung","samsung.com","三星官网","科技公司"],
-["Cloudflare","cloudflare.com","CDN服务","科技公司"],
-["Huawei","huawei.com","华为官网","科技公司"],
-["Oracle","oracle.com","甲骨文","科技公司"],
-["Salesforce","salesforce.com","CRM平台","科技公司"]
-];
+  <header class="header">
+    <div>
+      <div class="logo-wrap">
+        <span class="logo-mark">馃寪</span>
+        <div class="logo">116瀵艰埅</div>
+      </div>
+      <div class="header-sub">鎸夊綋鍓嶅叕寮€鍏ㄧ悆楂樻祦閲忕綉绔欐暣鐞?路 鍏辨敹褰?116 涓珯鐐?/div>
+    </div>
+    <button class="theme-btn" id="themeBtn" aria-label="鍒囨崲涓婚">馃寵</button>
+  </header>
 
-var sites=S.map(function(s){return{name:s[0],domain:s[1],desc:s[2],category:s[3]}});
-var cats=[...new Set(sites.map(function(s){return s.category}))];
+  <div class="tabs" id="tabs"></div>
 
-function getFavicon(domain){
-return "https://www.google.com/s2/favicons?domain="+domain+"&sz=64";
-}
+  <main class="container">
+    <div class="hero-note">
+      <strong>璇存槑锛?/strong>鏈〉鎸夊綋鍓嶅叕寮€鍏ㄧ悆楂樻祦閲忕綉绔欐暣鐞嗕负 116 涓父鐢ㄥ叆鍙ｏ紝
+      浠ュ鑸娇鐢ㄤ负涓伙紝鎸夌被鍒祻瑙堟洿鐩磋銆傛瘡涓珯鐐瑰墠鍧囨樉绀哄搴旂綉绔?logo銆?    </div>
+    <div id="main"></div>
+  </main>
 
-function renderTabs(){
-var h='<button class="tab active" data-c="all">全部</button>';
-cats.forEach(function(c){h+='<button class="tab" data-c="'+c+'">'+c+'</button>';});
-document.getElementById('tabs').innerHTML=h;
-document.querySelectorAll('.tab').forEach(function(t){
-t.onclick=function(){
-document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active')});
-t.classList.add('active');
-render(t.dataset.c,document.getElementById('search').value);
-};
-});
-}
+  <footer class="footer">
+    116瀵艰埅 路 鍏ㄧ悆鍓?116 鍚嶉珮娴侀噺缃戠珯瀵艰埅 路 闈欐€佸崟椤甸儴缃茬増
+  </footer>
 
-function render(cat,kw){
-cat=cat||'all';kw=(kw||'').toLowerCase();
-var list=sites;
-if(cat!=='all')list=list.filter(function(s){return s.category===cat});
-if(kw)list=list.filter(function(s){return s.name.toLowerCase().indexOf(kw)>-1||s.desc.toLowerCase().indexOf(kw)>-1||s.category.toLowerCase().indexOf(kw)>-1||s.domain.toLowerCase().indexOf(kw)>-1});
-if(!list.length){document.getElementById('main').innerHTML='<div class="empty">没有找到匹配的网站</div>';return;}
-var g={};
-list.forEach(function(s){if(!g[s.category])g[s.category]=[];g[s.category].push(s);});
-var h='';
-for(var c in g){
-h+='<section class="category"><h2 class="cat-title">'+c+'（'+g[c].length+'）</h2><div class="grid">';
-g[c].forEach(function(s){
-var url='https://'+s.domain;
-h+='<a href="'+url+'" target="_blank" rel="noopener" class="card">';
-h+='<span class="icon"><img src="'+getFavicon(s.domain)+'" alt="'+s.name+'" onerror="this.style.display=\'none\'"></span>';
-h+='<div><div class="name">'+s.name+'</div><div class="desc">'+s.desc+'</div></div></a>';
-});
-h+='</div></section>';
-}
-document.getElementById('main').innerHTML=h;
-}
+  <script>
+    const sites = [
+      { rank: 1, name: "Google", domain: "google.com", desc: "鍏ㄧ悆鏈€澶ф悳绱㈠紩鎿?, category: "鎼滅储寮曟搸" },
+      { rank: 2, name: "YouTube", domain: "youtube.com", desc: "鍏ㄧ悆鏈€澶ц棰戝钩鍙?, category: "瑙嗛" },
+      { rank: 3, name: "Facebook", domain: "facebook.com", desc: "鍏ㄧ悆绀句氦缃戠粶骞冲彴", category: "绀句氦濯掍綋" },
+      { rank: 4, name: "Instagram", domain: "instagram.com", desc: "鍥剧墖涓庣煭瑙嗛绀句氦", category: "绀句氦濯掍綋" },
+      { rank: 5, name: "ChatGPT", domain: "chatgpt.com", desc: "涓绘祦瀵硅瘽寮?AI 宸ュ叿", category: "AI宸ュ叿" },
+      { rank: 6, name: "X", domain: "x.com", desc: "瀹炴椂绀句氦涓庤祫璁钩鍙?, category: "绀句氦濯掍綋" },
+      { rank: 7, name: "WhatsApp", domain: "whatsapp.com", desc: "鍥介檯鍗虫椂閫氳宸ュ叿", category: "绀句氦濯掍綋" },
+      { rank: 8, name: "Reddit", domain: "reddit.com", desc: "澶у瀷鑻辨枃绀惧尯璁哄潧", category: "绀句氦濯掍綋" },
+      { rank: 9, name: "Wikipedia", domain: "wikipedia.org", desc: "鍏ㄧ悆寮€鏀剧櫨绉戝叏涔?, category: "鐧剧鐭ヨ瘑" },
+      { rank: 10, name: "Bing", domain: "bing.com", desc: "寰蒋鎼滅储寮曟搸", category: "鎼滅储寮曟搸" },
+      { rank: 11, name: "TikTok", domain: "tiktok.com", desc: "鍏ㄧ悆鐭棰戝钩鍙?, category: "瑙嗛" },
+      { rank: 12, name: "Yahoo", domain: "yahoo.com", desc: "闂ㄦ埛涓庢悳绱㈠钩鍙?, category: "鎼滅储寮曟搸" },
+      { rank: 13, name: "Baidu", domain: "baidu.com", desc: "涓枃鎼滅储寮曟搸", category: "鎼滅储寮曟搸" },
+      { rank: 14, name: "Amazon", domain: "amazon.com", desc: "鍏ㄧ悆缁煎悎鐢靛晢骞冲彴", category: "璐墿鐢靛晢" },
+      { rank: 15, name: "LinkedIn", domain: "linkedin.com", desc: "鑱屽満绀句氦骞冲彴", category: "绀句氦濯掍綋" },
+      { rank: 16, name: "Yandex", domain: "yandex.com", desc: "淇勮鎼滅储寮曟搸", category: "鎼滅储寮曟搸" },
+      { rank: 17, name: "Netflix", domain: "netflix.com", desc: "娴佸獟浣撳奖瑙嗗钩鍙?, category: "瑙嗛" },
+      { rank: 18, name: "Microsoft", domain: "microsoft.com", desc: "鍏ㄧ悆绉戞妧鍏徃瀹樼綉", category: "绉戞妧鍏徃" },
+      { rank: 19, name: "Office", domain: "office.com", desc: "寰蒋鍦ㄧ嚎鍔炲叕鍏ュ彛", category: "宸ュ叿鏁堢巼" },
+      { rank: 20, name: "Discord", domain: "discord.com", desc: "绀惧尯涓庤闊宠亰澶╁钩鍙?, category: "绀句氦濯掍綋" },
+      { rank: 21, name: "Pinterest", domain: "pinterest.com", desc: "鍥剧墖鐏垫劅涓庢敹钘忓钩鍙?, category: "绀句氦濯掍綋" },
+      { rank: 22, name: "Telegram", domain: "telegram.org", desc: "鍔犲瘑閫氳骞冲彴", category: "绀句氦濯掍綋" },
+      { rank: 23, name: "DuckDuckGo", domain: "duckduckgo.com", desc: "闅愮鎼滅储寮曟搸", category: "鎼滅储寮曟搸" },
+      { rank: 24, name: "Naver", domain: "naver.com", desc: "闊╁浗缁煎悎闂ㄦ埛", category: "鎼滅储寮曟搸" },
+      { rank: 25, name: "Twitch", domain: "twitch.tv", desc: "鐩存挱涓庢父鎴忚棰戝钩鍙?, category: "瑙嗛" },
+      { rank: 26, name: "Bilibili", domain: "bilibili.com", desc: "涓枃瑙嗛绀惧尯", category: "瑙嗛" },
+      { rank: 27, name: "Temu", domain: "temu.com", desc: "璺ㄥ璐墿骞冲彴", category: "璐墿鐢靛晢" },
+      { rank: 28, name: "Canva", domain: "canva.com", desc: "鍦ㄧ嚎璁捐宸ュ叿", category: "宸ュ叿鏁堢巼" },
+      { rank: 29, name: "Weather", domain: "weather.com", desc: "澶╂皵鏌ヨ骞冲彴", category: "宸ュ叿鏁堢巼" },
+      { rank: 30, name: "Zoom", domain: "zoom.us", desc: "瑙嗛浼氳宸ュ叿", category: "宸ュ叿鏁堢巼" },
+      { rank: 31, name: "GitHub", domain: "github.com", desc: "浠ｇ爜鎵樼骞冲彴", category: "寮€鍙戞妧鏈? },
+      { rank: 32, name: "Spotify", domain: "spotify.com", desc: "鍏ㄧ悆闊充箰娴佸獟浣?, category: "闊充箰" },
+      { rank: 33, name: "PayPal", domain: "paypal.com", desc: "鍦ㄧ嚎鏀粯骞冲彴", category: "閲戣瀺" },
+      { rank: 34, name: "CNN", domain: "cnn.com", desc: "鍥介檯鏂伴椈濯掍綋", category: "鏂伴椈璧勮" },
+      { rank: 35, name: "BBC", domain: "bbc.com", desc: "鑻卞浗鏂伴椈濯掍綋", category: "鏂伴椈璧勮" },
+      { rank: 36, name: "The New York Times", domain: "nytimes.com", desc: "绾界害鏃舵姤", category: "鏂伴椈璧勮" },
+      { rank: 37, name: "Globo", domain: "globo.com", desc: "宸磋タ缁煎悎闂ㄦ埛濯掍綋", category: "鏂伴椈璧勮" },
+      { rank: 38, name: "Fandom", domain: "fandom.com", desc: "绮変笣鐧剧绀惧尯", category: "鐧剧鐭ヨ瘑" },
+      { rank: 39, name: "Yahoo News Japan", domain: "news.yahoo.co.jp", desc: "鏃ユ湰楂樻祦閲忔柊闂荤珯", category: "鏂伴椈璧勮" },
+      { rank: 40, name: "Samsung", domain: "samsung.com", desc: "涓夋槦瀹樻柟缃戠珯", category: "绉戞妧鍏徃" },
+      { rank: 41, name: "Apple", domain: "apple.com", desc: "鑻规灉瀹樻柟缃戠珯", category: "绉戞妧鍏徃" },
+      { rank: 42, name: "eBay", domain: "ebay.com", desc: "鍥介檯鐢靛晢涓庢媿鍗栧钩鍙?, category: "璐墿鐢靛晢" },
+      { rank: 43, name: "Walmart", domain: "walmart.com", desc: "闆跺敭鐢靛晢骞冲彴", category: "璐墿鐢靛晢" },
+      { rank: 44, name: "AliExpress", domain: "aliexpress.com", desc: "鍥介檯闆跺敭骞冲彴", category: "璐墿鐢靛晢" },
+      { rank: 45, name: "Etsy", domain: "etsy.com", desc: "鎵嬪伐鑹虹數鍟嗗钩鍙?, category: "璐墿鐢靛晢" },
+      { rank: 46, name: "Rakuten", domain: "rakuten.co.jp", desc: "鏃ユ湰鐢靛晢骞冲彴", category: "璐墿鐢靛晢" },
+      { rank: 47, name: "Ozon", domain: "ozon.ru", desc: "淇勭綏鏂數鍟嗗钩鍙?, category: "璐墿鐢靛晢" },
+      { rank: 48, name: "Shopee", domain: "shopee.com", desc: "涓滃崡浜氱數鍟嗗钩鍙?, category: "璐墿鐢靛晢" },
+      { rank: 49, name: "Flipkart", domain: "flipkart.com", desc: "鍗板害鐢靛晢骞冲彴", category: "璐墿鐢靛晢" },
+      { rank: 50, name: "JD", domain: "jd.com", desc: "浜笢鍟嗗煄", category: "璐墿鐢靛晢" },
+      { rank: 51, name: "Taobao", domain: "taobao.com", desc: "娣樺疂璐墿骞冲彴", category: "璐墿鐢靛晢" },
+      { rank: 52, name: "Gmail", domain: "mail.google.com", desc: "璋锋瓕閭", category: "宸ュ叿鏁堢巼" },
+      { rank: 53, name: "Outlook", domain: "outlook.live.com", desc: "寰蒋閭", category: "宸ュ叿鏁堢巼" },
+      { rank: 54, name: "Google Drive", domain: "drive.google.com", desc: "璋锋瓕浜戠洏", category: "宸ュ叿鏁堢巼" },
+      { rank: 55, name: "Notion", domain: "notion.so", desc: "绗旇涓庡崗浣滃伐鍏?, category: "宸ュ叿鏁堢巼" },
+      { rank: 56, name: "Dropbox", domain: "dropbox.com", desc: "浜戝瓨鍌ㄥ伐鍏?, category: "宸ュ叿鏁堢巼" },
+      { rank: 57, name: "Google Maps", domain: "maps.google.com", desc: "鍦ㄧ嚎鍦板浘鏈嶅姟", category: "宸ュ叿鏁堢巼" },
+      { rank: 58, name: "Google Translate", domain: "translate.google.com", desc: "鍦ㄧ嚎缈昏瘧宸ュ叿", category: "宸ュ叿鏁堢巼" },
+      { rank: 59, name: "Adobe", domain: "adobe.com", desc: "鍒涙剰杞欢骞冲彴", category: "绉戞妧鍏徃" },
+      { rank: 60, name: "Figma", domain: "figma.com", desc: "UI 璁捐鍗忎綔宸ュ叿", category: "璁捐绱犳潗" },
+      { rank: 61, name: "Stack Overflow", domain: "stackoverflow.com", desc: "绋嬪簭鍛橀棶绛旂ぞ鍖?, category: "寮€鍙戞妧鏈? },
+      { rank: 62, name: "MDN", domain: "developer.mozilla.org", desc: "Web 寮€鍙戞枃妗?, category: "寮€鍙戞妧鏈? },
+      { rank: 63, name: "npm", domain: "npmjs.com", desc: "Node 鍖呯鐞嗗钩鍙?, category: "寮€鍙戞妧鏈? },
+      { rank: 64, name: "GitLab", domain: "gitlab.com", desc: "DevOps 寮€鍙戝钩鍙?, category: "寮€鍙戞妧鏈? },
+      { rank: 65, name: "W3Schools", domain: "w3schools.com", desc: "鍓嶇鏁欑▼缃戠珯", category: "寮€鍙戞妧鏈? },
+      { rank: 66, name: "CodePen", domain: "codepen.io", desc: "鍓嶇浠ｇ爜婕旂ず骞冲彴", category: "寮€鍙戞妧鏈? },
+      { rank: 67, name: "Vercel", domain: "vercel.com", desc: "鍓嶇閮ㄧ讲骞冲彴", category: "寮€鍙戞妧鏈? },
+      { rank: 68, name: "Cloudflare", domain: "cloudflare.com", desc: "缃戠粶涓?CDN 鏈嶅姟鍟?, category: "绉戞妧鍏徃" },
+      { rank: 69, name: "Zhihu", domain: "zhihu.com", desc: "涓枃闂瓟绀惧尯", category: "鐧剧鐭ヨ瘑" },
+      { rank: 70, name: "Medium", domain: "medium.com", desc: "鍐呭鍐欎綔骞冲彴", category: "鐧剧鐭ヨ瘑" },
+      { rank: 71, name: "Substack", domain: "substack.com", desc: "璁㈤槄鍐欎綔骞冲彴", category: "鐧剧鐭ヨ瘑" },
+      { rank: 72, name: "Namu Wiki", domain: "namu.wiki", desc: "闊╂枃鐭ヨ瘑绀惧尯", category: "鐧剧鐭ヨ瘑" },
+      { rank: 73, name: "Quora", domain: "quora.com", desc: "鍥介檯闂瓟绀惧尯", category: "绀惧尯璁哄潧" },
+      { rank: 74, name: "Stack Exchange", domain: "stackexchange.com", desc: "鍨傜洿闂瓟缃戠粶", category: "绀惧尯璁哄潧" },
+      { rank: 75, name: "Investing", domain: "investing.com", desc: "鎶曡祫琛屾儏骞冲彴", category: "閲戣瀺" },
+      { rank: 76, name: "Yahoo Finance", domain: "finance.yahoo.com", desc: "璐㈢粡璧勮骞冲彴", category: "閲戣瀺" },
+      { rank: 77, name: "CoinMarketCap", domain: "coinmarketcap.com", desc: "鍔犲瘑璐у竵琛屾儏", category: "閲戣瀺" },
+      { rank: 78, name: "Stripe", domain: "stripe.com", desc: "鏀粯鎺ュ彛骞冲彴", category: "閲戣瀺" },
+      { rank: 79, name: "TradingView", domain: "tradingview.com", desc: "浜ゆ槗鍥捐〃骞冲彴", category: "閲戣瀺" },
+      { rank: 80, name: "Robinhood", domain: "robinhood.com", desc: "鎶曡祫浜ゆ槗骞冲彴", category: "閲戣瀺" },
+      { rank: 81, name: "Steam", domain: "store.steampowered.com", desc: "PC 娓告垙骞冲彴", category: "娓告垙" },
+      { rank: 82, name: "Epic Games", domain: "epicgames.com", desc: "娓告垙鍟嗗簵骞冲彴", category: "娓告垙" },
+      { rank: 83, name: "Roblox", domain: "roblox.com", desc: "娌欑洅娓告垙骞冲彴", category: "娓告垙" },
+      { rank: 84, name: "IGN", domain: "ign.com", desc: "娓告垙璧勮缃戠珯", category: "娓告垙" },
+      { rank: 85, name: "Chess.com", domain: "chess.com", desc: "鍥介檯璞℃绀惧尯", category: "娓告垙" },
+      { rank: 86, name: "Dribbble", domain: "dribbble.com", desc: "璁捐甯堜綔鍝佺ぞ鍖?, category: "璁捐绱犳潗" },
+      { rank: 87, name: "Unsplash", domain: "unsplash.com", desc: "鍏嶈垂楂樻竻鍥剧墖", category: "璁捐绱犳潗" },
+      { rank: 88, name: "Behance", domain: "behance.net", desc: "璁捐浣滃搧灞曠ず骞冲彴", category: "璁捐绱犳潗" },
+      { rank: 89, name: "Shutterstock", domain: "shutterstock.com", desc: "姝ｇ増绱犳潗鍥惧簱", category: "璁捐绱犳潗" },
+      { rank: 90, name: "Pixabay", domain: "pixabay.com", desc: "鍏嶈垂鍥剧墖绱犳潗骞冲彴", category: "璁捐绱犳潗" },
+      { rank: 91, name: "SoundCloud", domain: "soundcloud.com", desc: "闊充箰鍒嗕韩骞冲彴", category: "闊充箰" },
+      { rank: 92, name: "Apple Music", domain: "music.apple.com", desc: "鑻规灉闊充箰鏈嶅姟", category: "闊充箰" },
+      { rank: 93, name: "YouTube Music", domain: "music.youtube.com", desc: "YouTube 闊充箰", category: "闊充箰" },
+      { rank: 94, name: "Deezer", domain: "deezer.com", desc: "鍥介檯娴佸獟浣撻煶涔愬钩鍙?, category: "闊充箰" },
+      { rank: 95, name: "Coursera", domain: "coursera.org", desc: "鍦ㄧ嚎璇剧▼骞冲彴", category: "鏁欒偛" },
+      { rank: 96, name: "Khan Academy", domain: "khanacademy.org", desc: "鍏嶈垂鏁欒偛骞冲彴", category: "鏁欒偛" },
+      { rank: 97, name: "Udemy", domain: "udemy.com", desc: "鎶€鑳藉涔犲钩鍙?, category: "鏁欒偛" },
+      { rank: 98, name: "edX", domain: "edx.org", desc: "楂樼瓑鏁欒偛鍦ㄧ嚎璇剧▼", category: "鏁欒偛" },
+      { rank: 99, name: "Huawei", domain: "huawei.com", desc: "鍗庝负瀹樻柟缃戠珯", category: "绉戞妧鍏徃" },
+      { rank: 100, name: "Oracle", domain: "oracle.com", desc: "浼佷笟鎶€鏈钩鍙?, category: "绉戞妧鍏徃" },
+      { rank: 101, name: "Salesforce", domain: "salesforce.com", desc: "CRM 杞欢骞冲彴", category: "绉戞妧鍏徃" },
+      { rank: 102, name: "Intel", domain: "intel.com", desc: "鑺墖涓庤绠楀钩鍙?, category: "绉戞妧鍏徃" },
+      { rank: 103, name: "NVIDIA", domain: "nvidia.com", desc: "AI 涓庡浘褰㈣绠楀钩鍙?, category: "绉戞妧鍏徃" },
+      { rank: 104, name: "Booking", domain: "booking.com", desc: "閰掑簵浣忓棰勮骞冲彴", category: "鏃呰鍑鸿" },
+      { rank: 105, name: "Airbnb", domain: "airbnb.com", desc: "姘戝鐭骞冲彴", category: "鏃呰鍑鸿" },
+      { rank: 106, name: "Tripadvisor", domain: "tripadvisor.com", desc: "鏃呰鐐硅瘎骞冲彴", category: "鏃呰鍑鸿" },
+      { rank: 107, name: "Expedia", domain: "expedia.com", desc: "缁煎悎鏃呰棰勮骞冲彴", category: "鏃呰鍑鸿" },
+      { rank: 108, name: "IMDb", domain: "imdb.com", desc: "褰辫璧勬枡涓庤瘎鍒嗗钩鍙?, category: "褰遍煶濞变箰" },
+      { rank: 109, name: "Rotten Tomatoes", domain: "rottentomatoes.com", desc: "褰辫璇勫垎涓庤瘎璁哄钩鍙?, category: "褰遍煶濞变箰" },
+      { rank: 110, name: "Crunchyroll", domain: "crunchyroll.com", desc: "鍔ㄦ极娴佸獟浣撳钩鍙?, category: "褰遍煶濞变箰" },
+      { rank: 111, name: "Vimeo", domain: "vimeo.com", desc: "楂樿川閲忚棰戝钩鍙?, category: "瑙嗛" },
+      { rank: 112, name: "Disney+", domain: "disneyplus.com", desc: "杩＋灏兼祦濯掍綋鏈嶅姟", category: "瑙嗛" },
+      { rank: 113, name: "Dailymotion", domain: "dailymotion.com", desc: "鍥介檯瑙嗛骞冲彴", category: "瑙嗛" },
+      { rank: 114, name: "VK", domain: "vk.com", desc: "淇勮绀句氦骞冲彴", category: "绀句氦濯掍綋" },
+      { rank: 115, name: "Tumblr", domain: "tumblr.com", desc: "杞诲崥瀹笌绀惧尯骞冲彴", category: "绀惧尯璁哄潧" },
+      { rank: 116, name: "Threads", domain: "threads.net", desc: "Meta 鏃椾笅绀句氦骞冲彴", category: "绀句氦濯掍綋" }
+    ];
 
-document.getElementById('search').addEventListener('input',function(e){
-var ac=document.querySelector('.tab.active');
-render(ac?ac.dataset.c:'all',e.target.value);
-});
+    const categories = ["鍏ㄩ儴", ...new Set(sites.map(site => site.category))];
 
-var btn=document.getElementById('themeBtn');
-var theme=localStorage.getItem('theme')||'light';
-document.documentElement.setAttribute('data-theme',theme);
-btn.textContent=theme==='dark'?'☀️':'🌙';
-btn.onclick=function(){
-var n=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';
-document.documentElement.setAttribute('data-theme',n);
-localStorage.setItem('theme',n);
-btn.textContent=n==='dark'?'☀️':'🌙';
-};
+    function getFavicon(domain) {
+      return "https://www.google.com/s2/favicons?domain=" + domain + "&sz=64";
+    }
 
-renderTabs();
-render();
-</script>
+    function renderTabs() {
+      let html = "";
+      categories.forEach((category, index) => {
+        const value = category === "鍏ㄩ儴" ? "all" : category;
+        html += `<button class="tab ${index === 0 ? "active" : ""}" data-c="${value}">${category}</button>`;
+      });
+
+      document.getElementById("tabs").innerHTML = html;
+
+      document.querySelectorAll(".tab").forEach(tab => {
+        tab.addEventListener("click", function () {
+          document.querySelectorAll(".tab").forEach(node => node.classList.remove("active"));
+          this.classList.add("active");
+          render(this.dataset.c);
+        });
+      });
+    }
+
+    function render(category = "all") {
+      let list = sites;
+      if (category !== "all") {
+        list = sites.filter(site => site.category === category);
+      }
+
+      if (!list.length) {
+        document.getElementById("main").innerHTML = '<div class="empty">褰撳墠鍒嗙被涓嬫病鏈夌綉绔欍€?/div>';
+        return;
+      }
+
+      const grouped = {};
+      list.forEach(site => {
+        if (!grouped[site.category]) grouped[site.category] = [];
+        grouped[site.category].push(site);
+      });
+
+      let html = "";
+      Object.keys(grouped).forEach(categoryName => {
+        const group = grouped[categoryName];
+        html += `<section class="category">`;
+        html += `<h2 class="cat-title">${categoryName}<span>(${group.length})</span></h2>`;
+        html += `<div class="grid">`;
+        group.forEach(site => {
+          const url = "https://" + site.domain;
+          html += `<a href="${url}" target="_blank" rel="noopener" class="card">`;
+          html += `<span class="rank">#${site.rank}</span>`;
+          html += `<span class="icon"><img src="${getFavicon(site.domain)}" alt="${site.name} logo" loading="lazy" onerror="this.src='https://icons.duckduckgo.com/ip3/${site.domain}.ico'"></span>`;
+          html += `<div class="meta"><div class="name">${site.name}</div><div class="desc">${site.desc}</div></div>`;
+          html += `</a>`;
+        });
+        html += `</div></section>`;
+      });
+
+      document.getElementById("main").innerHTML = html;
+    }
+
+    const themeBtn = document.getElementById("themeBtn");
+    const currentTheme = localStorage.getItem("theme") || "light";
+    document.documentElement.setAttribute("data-theme", currentTheme);
+    themeBtn.textContent = currentTheme === "dark" ? "鈽€锔? : "馃寵";
+
+    themeBtn.addEventListener("click", function () {
+      const nextTheme = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", nextTheme);
+      localStorage.setItem("theme", nextTheme);
+      themeBtn.textContent = nextTheme === "dark" ? "鈽€锔? : "馃寵";
+    });
+
+    renderTabs();
+    render();
+  </script>
 </body>
 </html>
