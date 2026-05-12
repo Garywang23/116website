@@ -1,118 +1,89 @@
-import csv
-import io
-import json
-import re
-import urllib.request
-import zipfile
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+import csv, io, json, os, re, zipfile, urllib.request
 from datetime import date
 from pathlib import Path
-
 LIMIT = 116
-TRANC0_ZIP_URL = "https://tranco-list.eu/top-1m.csv.zip"
-
-country_by_tld = {
-    "cn":"中国", "hk":"中国", "tw":"中国", "jp":"日本", "kr":"韩国", "ru":"俄罗斯",
-    "uk":"英国", "de":"德国", "fr":"法国", "in":"印度", "au":"澳大利亚", "ca":"加拿大",
-    "sg":"新加坡", "nl":"荷兰", "se":"瑞典", "br":"巴西", "it":"意大利", "es":"西班牙"
+TRANKO_URL = "https://tranco-list.eu/top-1m.csv.zip"
+BLOCK_KEYWORDS = ["porn","sex","xxx","xvideos","xnxx","onlyfans","chaturbate","bet","casino","gambling","poker","torrent","piratebay"]
+COUNTRY_BY_TLD = {"cn":"中国","hk":"中国","tw":"中国","jp":"日本","kr":"韩国","ru":"俄罗斯","uk":"英国","de":"德国","fr":"法国","in":"印度","au":"澳大利亚","ca":"加拿大","sg":"新加坡","nl":"荷兰","se":"瑞典","br":"巴西","it":"意大利","es":"西班牙"}
+CATEGORY_RULES = {
+    "ai":["AI"], "openai":["AI"], "chatgpt":["AI"], "huggingface":["AI","开发者"],
+    "github":["开发者"], "stackoverflow":["开发者"], "cloudflare":["开发者","工具"], "vercel":["开发者"],
+    "facebook":["社交"], "instagram":["社交"], "x.com":["社交","新闻"], "twitter":["社交","新闻"], "reddit":["社交"], "tiktok":["社交","视频"], "youtube":["视频","社交"],
+    "amazon":["电商","跨境电商"], "alibaba":["电商","跨境电商"], "aliexpress":["电商","跨境电商"], "shopify":["电商","跨境电商"], "ebay":["电商","跨境电商"],
+    "bbc":["新闻"], "cnn":["新闻"], "reuters":["新闻"], "bloomberg":["新闻"], "nytimes":["新闻"],
+    "coursera":["教育"], "edx":["教育"], "khanacademy":["教育"], "duolingo":["教育"], "leetcode":["教育","开发者"]
 }
+def clean_domain(d):
+    d=d.strip().lower(); d=re.sub(r"^https?://","",d).split('/')[0]; return d
 
-known = {
-    "google.com": ("Google", "美国", "全球搜索与互联网服务入口"),
-    "youtube.com": ("YouTube", "美国", "全球视频内容与创作者平台"),
-    "facebook.com": ("Facebook", "美国", "Meta 旗下社交网络平台"),
-    "instagram.com": ("Instagram", "美国", "图片、短视频与社交内容平台"),
-    "x.com": ("X / Twitter", "美国", "实时新闻、观点与社交平台"),
-    "twitter.com": ("X / Twitter", "美国", "实时新闻、观点与社交平台"),
-    "tiktok.com": ("TikTok", "中国", "字节跳动旗下全球短视频平台"),
-    "baidu.com": ("Baidu", "中国", "中文搜索、AI 与信息服务平台"),
-    "wikipedia.org": ("Wikipedia", "全球", "全球协作百科知识库"),
-    "reddit.com": ("Reddit", "美国", "大型社区论坛与话题讨论平台"),
-    "amazon.com": ("Amazon", "美国", "全球电商与云计算服务平台"),
-    "netflix.com": ("Netflix", "美国", "全球流媒体影视平台"),
-    "microsoft.com": ("Microsoft", "美国", "软件、云计算与办公生态"),
-    "linkedin.com": ("LinkedIn", "美国", "职业社交与招聘平台"),
-    "apple.com": ("Apple", "美国", "消费电子与数字服务生态"),
-    "bing.com": ("Microsoft Bing", "美国", "微软搜索与 Copilot 入口"),
-    "openai.com": ("OpenAI", "美国", "AI 模型与应用服务平台"),
-    "chatgpt.com": ("ChatGPT", "美国", "OpenAI AI 对话入口"),
-    "github.com": ("GitHub", "美国", "代码托管与开发者协作平台"),
-    "cloudflare.com": ("Cloudflare", "美国", "CDN、DNS 与网络安全服务"),
-    "qq.com": ("Tencent", "中国", "腾讯门户、社交与内容服务"),
-    "taobao.com": ("Taobao", "中国", "阿里巴巴 C2C 电商平台"),
-    "tmall.com": ("Tmall", "中国", "品牌电商与 B2C 平台"),
-    "jd.com": ("JD", "中国", "自营电商与物流服务平台"),
-    "alibaba.com": ("Alibaba", "中国", "B2B 跨境贸易平台"),
-    "aliexpress.com": ("AliExpress", "中国", "阿里巴巴跨境电商平台"),
-}
+def is_safe(domain):
+    low=domain.lower(); return not any(k in low for k in BLOCK_KEYWORDS)
 
-def guess_country(domain: str) -> str:
-    tld = domain.rsplit(".", 1)[-1].lower()
-    return country_by_tld.get(tld, "美国")
+def guess_country(domain):
+    return COUNTRY_BY_TLD.get(domain.split('.')[-1].lower(), '美国')
 
-def pretty_name(domain: str) -> str:
-    d = domain.lower()
-    if d.startswith("www."):
-        d = d[4:]
-    base = d.split(".")[0]
-    return re.sub(r"[-_]+", " ", base).title()
+def guess_categories(domain):
+    cats=[]
+    for key, vals in CATEGORY_RULES.items():
+        if key in domain:
+            cats.extend(vals)
+    if domain.endswith('.cn') or any(x in domain for x in ['baidu','taobao','tmall','jd.com','qq.com','weibo','zhihu','bilibili','douyin','alipay','aliyun']): cats.append('中国')
+    return list(dict.fromkeys(cats))
 
-def load_existing():
-    p = Path("sites.json")
-    if not p.exists():
-        return {}
+def fetch_tranco():
+    req=urllib.request.Request(TRANKO_URL,headers={'User-Agent':'Mozilla/5.0'})
+    with urllib.request.urlopen(req,timeout=60) as r: data=r.read()
+    z=zipfile.ZipFile(io.BytesIO(data)); name=z.namelist()[0]
+    domains=[]
+    with z.open(name) as f:
+        text=io.TextIOWrapper(f,encoding='utf-8')
+        for row in csv.reader(text):
+            if len(row)<2: continue
+            d=clean_domain(row[1])
+            if d and is_safe(d): domains.append(d)
+            if len(domains)>=LIMIT: break
+    return domains
+
+def load_old():
+    if not os.path.exists('sites.json'): return {}
+    with open('sites.json','r',encoding='utf-8') as f:
+        return {x['domain'].lower():x for x in json.load(f)}
+
+def build_sitemap():
+    today=date.today().isoformat()
+    pages=['index.html','top-websites.html','ai-tools.html','social-media.html','cross-border.html','ecommerce.html','developer-tools.html','news-media.html','free-images.html','education.html','china-websites.html','tech-tools.html','en/index.html']
+    smap='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    for p in pages:
+        loc='https://116.ccwu.cc/' if p=='index.html' else 'https://116.ccwu.cc/'+p
+        pr='1.0' if p=='index.html' else '0.8'
+        smap+=f'  <url><loc>{loc}</loc><lastmod>{today}</lastmod><changefreq>daily</changefreq><priority>{pr}</priority></url>\n'
+    smap+='</urlset>\n'; Path('sitemap.xml').write_text(smap,encoding='utf-8')
+
+def main():
+    old=load_old()
     try:
-        data = json.loads(p.read_text(encoding="utf-8"))
-        rows = data.get("sites", data if isinstance(data, list) else [])
-        return {x.get("domain","").lower(): x for x in rows}
-    except Exception:
-        return {}
-
-existing = load_existing()
-
-print("Downloading Tranco Top 1M...")
-req = urllib.request.Request(TRANC0_ZIP_URL, headers={"User-Agent": "116-nav-updater/1.0"})
-with urllib.request.urlopen(req, timeout=60) as resp:
-    raw = resp.read()
-
-with zipfile.ZipFile(io.BytesIO(raw)) as z:
-    name = z.namelist()[0]
-    csv_text = z.read(name).decode("utf-8", errors="ignore")
-
-sites = []
-reader = csv.reader(io.StringIO(csv_text))
-for row in reader:
-    if len(row) < 2:
-        continue
-    try:
-        rank = int(row[0])
-    except ValueError:
-        continue
-    domain = row[1].strip().lower()
-    if not domain:
-        continue
-
-    old = existing.get(domain, {})
-    if domain in known:
-        name, country, desc = known[domain]
-    else:
-        name = old.get("name") or pretty_name(domain)
-        country = old.get("country") or guess_country(domain)
-        desc = old.get("desc") or "全球高权重网站"
-
-    sites.append({
-        "rank": rank,
-        "name": name,
-        "domain": domain,
-        "country": country,
-        "desc": desc
-    })
-    if len(sites) >= LIMIT:
-        break
-
-out = {
-    "updatedAt": date.today().isoformat(),
-    "source": "tranco",
-    "sites": sites
-}
-Path("sites.json").write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
-print(f"Updated sites.json with {len(sites)} sites.")
+        domains=fetch_tranco(); print('Fetched Tranco safe list:',len(domains))
+    except Exception as e:
+        print('Fetch failed, keeping current sites.json:',e)
+        with open('sites.json','r',encoding='utf-8') as f: sites=json.load(f)[:LIMIT]
+        build_sitemap(); return
+    sites=[]
+    for i,d in enumerate(domains,1):
+        o=old.get(d,{})
+        old_rank=o.get('rank')
+        change=(old_rank-i) if isinstance(old_rank,int) else None
+        sites.append({
+            'rank':i,
+            'prev_rank':old_rank,
+            'change':change,
+            'name':o.get('name') or d.split('.')[0].replace('-',' ').title(),
+            'domain':d,
+            'country':o.get('country') or guess_country(d),
+            'desc':o.get('desc') or '全球高权重网站',
+            'categories':o.get('categories') or guess_categories(d)
+        })
+    Path('sites.json').write_text(json.dumps(sites,ensure_ascii=False,indent=2),encoding='utf-8')
+    build_sitemap()
+if __name__=='__main__': main()

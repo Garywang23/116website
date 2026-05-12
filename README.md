@@ -1,19 +1,15 @@
-# 116导航自动更新版
+# 116导航
 
-文件结构：
+Cloudflare Pages 静态导航站，包含：
 
-- `index.html`：页面
-- `sites.json`：网站排名数据
-- `update_rank.py`：拉取 Tranco Top 1M 并生成前 116 名
-- `.github/workflows/update-rank.yml`：GitHub Actions 定时任务
+- 搜索框
+- 分类筛选
+- 排名变化：↑ 上升，↓ 下降，— 无变化，NEW 新入榜
+- 中文 / English 双语首页
+- GitHub Actions 每日自动更新 sites.json
 
-部署方式：
+## 上传说明
 
-1. 上传全部文件到 GitHub 仓库根目录。
-2. GitHub 仓库 Settings → Actions → General → Workflow permissions，选择 `Read and write permissions`。
-3. Cloudflare Pages 绑定这个仓库。
-4. 以后 GitHub Actions 每天自动更新 `sites.json`，Cloudflare Pages 会跟着重新部署。
+把本目录全部文件上传到 GitHub，保持 `.github/workflows/update-rank.yml` 路径不变。
 
-手动更新：
-
-GitHub → Actions → `Update Top Sites Ranking` → `Run workflow`
+GitHub 设置：Settings → Actions → General → Workflow permissions → Read and write permissions。

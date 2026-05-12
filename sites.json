@@ -1,702 +1,1476 @@
-{
-  "updatedAt": "2026-05-12",
-  "source": "fallback",
-  "sites": [
-    {
-      "name": "Google",
-      "domain": "google.com",
-      "country": "美国",
-      "desc": "全球搜索与互联网服务入口"
-    },
-    {
-      "name": "YouTube",
-      "domain": "youtube.com",
-      "country": "美国",
-      "desc": "全球视频内容与创作者平台"
-    },
-    {
-      "name": "Facebook",
-      "domain": "facebook.com",
-      "country": "美国",
-      "desc": "Meta 旗下社交网络平台"
-    },
-    {
-      "name": "Instagram",
-      "domain": "instagram.com",
-      "country": "美国",
-      "desc": "图片、短视频与社交内容平台"
-    },
-    {
-      "name": "X / Twitter",
-      "domain": "x.com",
-      "country": "美国",
-      "desc": "实时新闻、观点与社交平台"
-    },
-    {
-      "name": "TikTok",
-      "domain": "tiktok.com",
-      "country": "中国",
-      "desc": "字节跳动旗下全球短视频平台"
-    },
-    {
-      "name": "Baidu",
-      "domain": "baidu.com",
-      "country": "中国",
-      "desc": "中文搜索、AI 与信息服务平台"
-    },
-    {
-      "name": "Wikipedia",
-      "domain": "wikipedia.org",
-      "country": "全球",
-      "desc": "全球协作百科知识库"
-    },
-    {
-      "name": "Reddit",
-      "domain": "reddit.com",
-      "country": "美国",
-      "desc": "大型社区论坛与话题讨论平台"
-    },
-    {
-      "name": "Yahoo",
-      "domain": "yahoo.com",
-      "country": "美国",
-      "desc": "新闻、邮箱、财经与门户服务"
-    },
-    {
-      "name": "Amazon",
-      "domain": "amazon.com",
-      "country": "美国",
-      "desc": "全球电商与云计算服务平台"
-    },
-    {
-      "name": "Netflix",
-      "domain": "netflix.com",
-      "country": "美国",
-      "desc": "全球流媒体影视平台"
-    },
-    {
-      "name": "Microsoft",
-      "domain": "microsoft.com",
-      "country": "美国",
-      "desc": "软件、云计算与办公生态"
-    },
-    {
-      "name": "LinkedIn",
-      "domain": "linkedin.com",
-      "country": "美国",
-      "desc": "职业社交与招聘平台"
-    },
-    {
-      "name": "Apple",
-      "domain": "apple.com",
-      "country": "美国",
-      "desc": "消费电子与数字服务生态"
-    },
-    {
-      "name": "Microsoft Bing",
-      "domain": "bing.com",
-      "country": "美国",
-      "desc": "微软搜索与 Copilot 入口"
-    },
-    {
-      "name": "Office",
-      "domain": "office.com",
-      "country": "美国",
-      "desc": "微软在线办公服务"
-    },
-    {
-      "name": "Live",
-      "domain": "live.com",
-      "country": "美国",
-      "desc": "微软账户与邮箱服务"
-    },
-    {
-      "name": "WhatsApp",
-      "domain": "whatsapp.com",
-      "country": "美国",
-      "desc": "Meta 旗下即时通讯服务"
-    },
-    {
-      "name": "OpenAI",
-      "domain": "openai.com",
-      "country": "美国",
-      "desc": "AI 模型与应用服务平台"
-    },
-    {
-      "name": "ChatGPT",
-      "domain": "chatgpt.com",
-      "country": "美国",
-      "desc": "OpenAI AI 对话入口"
-    },
-    {
-      "name": "GitHub",
-      "domain": "github.com",
-      "country": "美国",
-      "desc": "代码托管与开发者协作平台"
-    },
-    {
-      "name": "Stack Overflow",
-      "domain": "stackoverflow.com",
-      "country": "美国",
-      "desc": "程序员问答社区"
-    },
-    {
-      "name": "Cloudflare",
-      "domain": "cloudflare.com",
-      "country": "美国",
-      "desc": "CDN、DNS 与网络安全服务"
-    },
-    {
-      "name": "Google Drive",
-      "domain": "drive.google.com",
-      "country": "美国",
-      "desc": "Google 云存储与协作服务"
-    },
-    {
-      "name": "Gmail",
-      "domain": "mail.google.com",
-      "country": "美国",
-      "desc": "Google 邮箱服务"
-    },
-    {
-      "name": "Google Maps",
-      "domain": "maps.google.com",
-      "country": "美国",
-      "desc": "地图、导航与本地信息服务"
-    },
-    {
-      "name": "Pinterest",
-      "domain": "pinterest.com",
-      "country": "美国",
-      "desc": "图片灵感与收藏平台"
-    },
-    {
-      "name": "Quora",
-      "domain": "quora.com",
-      "country": "美国",
-      "desc": "英文问答与知识分享社区"
-    },
-    {
-      "name": "Twitch",
-      "domain": "twitch.tv",
-      "country": "美国",
-      "desc": "游戏与直播内容平台"
-    },
-    {
-      "name": "Discord",
-      "domain": "discord.com",
-      "country": "美国",
-      "desc": "语音、社群与即时通讯平台"
-    },
-    {
-      "name": "Telegram",
-      "domain": "telegram.org",
-      "country": "俄罗斯",
-      "desc": "跨平台即时通讯工具"
-    },
-    {
-      "name": "PayPal",
-      "domain": "paypal.com",
-      "country": "美国",
-      "desc": "全球在线支付服务"
-    },
-    {
-      "name": "eBay",
-      "domain": "ebay.com",
-      "country": "美国",
-      "desc": "在线拍卖与电商平台"
-    },
-    {
-      "name": "Walmart",
-      "domain": "walmart.com",
-      "country": "美国",
-      "desc": "大型零售与电商平台"
-    },
-    {
-      "name": "Shopify",
-      "domain": "shopify.com",
-      "country": "加拿大",
-      "desc": "电商建站与商家 SaaS 平台"
-    },
-    {
-      "name": "Adobe",
-      "domain": "adobe.com",
-      "country": "美国",
-      "desc": "设计、创意与文档软件服务"
-    },
-    {
-      "name": "Canva",
-      "domain": "canva.com",
-      "country": "澳大利亚",
-      "desc": "在线设计与模板工具"
-    },
-    {
-      "name": "Figma",
-      "domain": "figma.com",
-      "country": "美国",
-      "desc": "在线 UI/UX 协作设计工具"
-    },
-    {
-      "name": "Notion",
-      "domain": "notion.so",
-      "country": "美国",
-      "desc": "文档、知识库与项目管理工具"
-    },
-    {
-      "name": "Zoom",
-      "domain": "zoom.us",
-      "country": "美国",
-      "desc": "视频会议与企业协作平台"
-    },
-    {
-      "name": "Slack",
-      "domain": "slack.com",
-      "country": "美国",
-      "desc": "团队即时通讯与协作平台"
-    },
-    {
-      "name": "Dropbox",
-      "domain": "dropbox.com",
-      "country": "美国",
-      "desc": "云存储与文件同步服务"
-    },
-    {
-      "name": "Spotify",
-      "domain": "spotify.com",
-      "country": "瑞典",
-      "desc": "音乐与播客流媒体平台"
-    },
-    {
-      "name": "IMDb",
-      "domain": "imdb.com",
-      "country": "美国",
-      "desc": "影视资料与评分数据库"
-    },
-    {
-      "name": "BBC",
-      "domain": "bbc.com",
-      "country": "英国",
-      "desc": "英国公共媒体与新闻网站"
-    },
-    {
-      "name": "CNN",
-      "domain": "cnn.com",
-      "country": "美国",
-      "desc": "国际新闻媒体平台"
-    },
-    {
-      "name": "Reuters",
-      "domain": "reuters.com",
-      "country": "英国",
-      "desc": "国际通讯社与新闻服务"
-    },
-    {
-      "name": "Bloomberg",
-      "domain": "bloomberg.com",
-      "country": "美国",
-      "desc": "财经新闻与金融数据服务"
-    },
-    {
-      "name": "NYTimes",
-      "domain": "nytimes.com",
-      "country": "美国",
-      "desc": "新闻媒体与数字订阅平台"
-    },
-    {
-      "name": "WSJ",
-      "domain": "wsj.com",
-      "country": "美国",
-      "desc": "财经与商业新闻媒体"
-    },
-    {
-      "name": "Forbes",
-      "domain": "forbes.com",
-      "country": "美国",
-      "desc": "商业、财富与创业媒体"
-    },
-    {
-      "name": "Medium",
-      "domain": "medium.com",
-      "country": "美国",
-      "desc": "长文写作与知识分享平台"
-    },
-    {
-      "name": "DuckDuckGo",
-      "domain": "duckduckgo.com",
-      "country": "美国",
-      "desc": "隐私搜索引擎"
-    },
-    {
-      "name": "Yandex",
-      "domain": "yandex.com",
-      "country": "俄罗斯",
-      "desc": "搜索、地图与互联网服务"
-    },
-    {
-      "name": "VK",
-      "domain": "vk.com",
-      "country": "俄罗斯",
-      "desc": "俄罗斯大型社交网络"
-    },
-    {
-      "name": "Naver",
-      "domain": "naver.com",
-      "country": "韩国",
-      "desc": "韩国搜索与门户平台"
-    },
-    {
-      "name": "Kakao",
-      "domain": "kakao.com",
-      "country": "韩国",
-      "desc": "通讯、内容与生活服务平台"
-    },
-    {
-      "name": "Line",
-      "domain": "line.me",
-      "country": "日本",
-      "desc": "即时通讯与数字服务平台"
-    },
-    {
-      "name": "Rakuten",
-      "domain": "rakuten.co.jp",
-      "country": "日本",
-      "desc": "日本电商与金融生态平台"
-    },
-    {
-      "name": "Yahoo Japan",
-      "domain": "yahoo.co.jp",
-      "country": "日本",
-      "desc": "日本门户、新闻与搜索服务"
-    },
-    {
-      "name": "Nikkei",
-      "domain": "nikkei.com",
-      "country": "日本",
-      "desc": "日本财经新闻媒体"
-    },
-    {
-      "name": "Samsung",
-      "domain": "samsung.com",
-      "country": "韩国",
-      "desc": "电子产品与科技服务平台"
-    },
-    {
-      "name": "Sony",
-      "domain": "sony.com",
-      "country": "日本",
-      "desc": "电子、娱乐与游戏业务"
-    },
-    {
-      "name": "Tencent",
-      "domain": "qq.com",
-      "country": "中国",
-      "desc": "腾讯门户、社交与内容服务"
-    },
-    {
-      "name": "WeChat",
-      "domain": "wechat.com",
-      "country": "中国",
-      "desc": "微信国际入口与通讯服务"
-    },
-    {
-      "name": "Weibo",
-      "domain": "weibo.com",
-      "country": "中国",
-      "desc": "中文社交媒体与热点平台"
-    },
-    {
-      "name": "Zhihu",
-      "domain": "zhihu.com",
-      "country": "中国",
-      "desc": "中文问答与内容社区"
-    },
-    {
-      "name": "Bilibili",
-      "domain": "bilibili.com",
-      "country": "中国",
-      "desc": "视频社区与年轻文化平台"
-    },
-    {
-      "name": "Douyin",
-      "domain": "douyin.com",
-      "country": "中国",
-      "desc": "国内短视频与直播平台"
-    },
-    {
-      "name": "Taobao",
-      "domain": "taobao.com",
-      "country": "中国",
-      "desc": "阿里巴巴 C2C 电商平台"
-    },
-    {
-      "name": "Tmall",
-      "domain": "tmall.com",
-      "country": "中国",
-      "desc": "品牌电商与 B2C 平台"
-    },
-    {
-      "name": "JD",
-      "domain": "jd.com",
-      "country": "中国",
-      "desc": "自营电商与物流服务平台"
-    },
-    {
-      "name": "Pinduoduo",
-      "domain": "pinduoduo.com",
-      "country": "中国",
-      "desc": "社交电商与低价消费平台"
-    },
-    {
-      "name": "AliExpress",
-      "domain": "aliexpress.com",
-      "country": "中国",
-      "desc": "阿里巴巴跨境电商平台"
-    },
-    {
-      "name": "Alibaba",
-      "domain": "alibaba.com",
-      "country": "中国",
-      "desc": "B2B 跨境贸易平台"
-    },
-    {
-      "name": "1688",
-      "domain": "1688.com",
-      "country": "中国",
-      "desc": "中国内贸批发采购平台"
-    },
-    {
-      "name": "Meituan",
-      "domain": "meituan.com",
-      "country": "中国",
-      "desc": "本地生活、外卖与到店服务"
-    },
-    {
-      "name": "Xiaohongshu",
-      "domain": "xiaohongshu.com",
-      "country": "中国",
-      "desc": "生活方式与消费内容社区"
-    },
-    {
-      "name": "Ctrip",
-      "domain": "ctrip.com",
-      "country": "中国",
-      "desc": "在线旅行与酒店机票服务"
-    },
-    {
-      "name": "Amap",
-      "domain": "amap.com",
-      "country": "中国",
-      "desc": "高德地图与导航服务"
-    },
-    {
-      "name": "Baidu Netdisk",
-      "domain": "pan.baidu.com",
-      "country": "中国",
-      "desc": "个人云存储服务"
-    },
-    {
-      "name": "163",
-      "domain": "163.com",
-      "country": "中国",
-      "desc": "网易门户、邮箱与内容服务"
-    },
-    {
-      "name": "Sina",
-      "domain": "sina.com.cn",
-      "country": "中国",
-      "desc": "门户新闻与内容服务"
-    },
-    {
-      "name": "Sohu",
-      "domain": "sohu.com",
-      "country": "中国",
-      "desc": "门户新闻与视频服务"
-    },
-    {
-      "name": "iQIYI",
-      "domain": "iqiyi.com",
-      "country": "中国",
-      "desc": "在线视频与娱乐内容平台"
-    },
-    {
-      "name": "Tencent Video",
-      "domain": "v.qq.com",
-      "country": "中国",
-      "desc": "腾讯在线视频平台"
-    },
-    {
-      "name": "Youku",
-      "domain": "youku.com",
-      "country": "中国",
-      "desc": "阿里旗下长视频平台"
-    },
-    {
-      "name": "Douban",
-      "domain": "douban.com",
-      "country": "中国",
-      "desc": "书影音评分与兴趣社区"
-    },
-    {
-      "name": "CSDN",
-      "domain": "csdn.net",
-      "country": "中国",
-      "desc": "中文 IT 技术社区"
-    },
-    {
-      "name": "Juejin",
-      "domain": "juejin.cn",
-      "country": "中国",
-      "desc": "开发者技术社区"
-    },
-    {
-      "name": "Eastmoney",
-      "domain": "eastmoney.com",
-      "country": "中国",
-      "desc": "财经资讯与股票数据平台"
-    },
-    {
-      "name": "Snowball",
-      "domain": "xueqiu.com",
-      "country": "中国",
-      "desc": "投资社交与股票讨论平台"
-    },
-    {
-      "name": "Alipay",
-      "domain": "alipay.com",
-      "country": "中国",
-      "desc": "第三方支付与金融服务平台"
-    },
-    {
-      "name": "AWS",
-      "domain": "aws.amazon.com",
-      "country": "美国",
-      "desc": "亚马逊云计算服务"
-    },
-    {
-      "name": "Azure",
-      "domain": "azure.microsoft.com",
-      "country": "美国",
-      "desc": "微软云计算平台"
-    },
-    {
-      "name": "Google Cloud",
-      "domain": "cloud.google.com",
-      "country": "美国",
-      "desc": "Google 云计算平台"
-    },
-    {
-      "name": "Aliyun",
-      "domain": "aliyun.com",
-      "country": "中国",
-      "desc": "阿里巴巴云计算平台"
-    },
-    {
-      "name": "Tencent Cloud",
-      "domain": "cloud.tencent.com",
-      "country": "中国",
-      "desc": "腾讯云服务平台"
-    },
-    {
-      "name": "Vercel",
-      "domain": "vercel.com",
-      "country": "美国",
-      "desc": "前端部署与 Serverless 平台"
-    },
-    {
-      "name": "Netlify",
-      "domain": "netlify.com",
-      "country": "美国",
-      "desc": "静态网站与前端部署平台"
-    },
-    {
-      "name": "DigitalOcean",
-      "domain": "digitalocean.com",
-      "country": "美国",
-      "desc": "开发者云服务器平台"
-    },
-    {
-      "name": "Hugging Face",
-      "domain": "huggingface.co",
-      "country": "美国",
-      "desc": "AI 模型、数据集与社区平台"
-    },
-    {
-      "name": "Kaggle",
-      "domain": "kaggle.com",
-      "country": "美国",
-      "desc": "数据科学竞赛与数据集平台"
-    },
-    {
-      "name": "Coursera",
-      "domain": "coursera.org",
-      "country": "美国",
-      "desc": "在线课程与大学合作平台"
-    },
-    {
-      "name": "edX",
-      "domain": "edx.org",
-      "country": "美国",
-      "desc": "在线大学课程平台"
-    },
-    {
-      "name": "Khan Academy",
-      "domain": "khanacademy.org",
-      "country": "美国",
-      "desc": "免费在线教育平台"
-    },
-    {
-      "name": "Duolingo",
-      "domain": "duolingo.com",
-      "country": "美国",
-      "desc": "语言学习应用平台"
-    },
-    {
-      "name": "LeetCode",
-      "domain": "leetcode.com",
-      "country": "美国",
-      "desc": "程序员算法刷题平台"
-    },
-    {
-      "name": "Steam",
-      "domain": "steampowered.com",
-      "country": "美国",
-      "desc": "PC 游戏发行与社区平台"
-    },
-    {
-      "name": "Epic Games",
-      "domain": "epicgames.com",
-      "country": "美国",
-      "desc": "游戏发行与虚幻引擎平台"
-    },
-    {
-      "name": "Roblox",
-      "domain": "roblox.com",
-      "country": "美国",
-      "desc": "UGC 游戏与虚拟社区平台"
-    },
-    {
-      "name": "Booking",
-      "domain": "booking.com",
-      "country": "荷兰",
-      "desc": "全球住宿预订平台"
-    },
-    {
-      "name": "Airbnb",
-      "domain": "airbnb.com",
-      "country": "美国",
-      "desc": "民宿短租与旅行平台"
-    },
-    {
-      "name": "Tripadvisor",
-      "domain": "tripadvisor.com",
-      "country": "美国",
-      "desc": "旅行点评与酒店攻略平台"
-    },
-    {
-      "name": "Grab",
-      "domain": "grab.com",
-      "country": "新加坡",
-      "desc": "东南亚出行与生活服务平台"
-    }
-  ]
-}
+[
+  {
+    "name": "Google",
+    "domain": "google.com",
+    "country": "美国",
+    "desc": "全球搜索与互联网服务入口",
+    "categories": [
+      "搜索",
+      "工具"
+    ],
+    "rank": 1,
+    "prev_rank": 1,
+    "change": 0
+  },
+  {
+    "name": "YouTube",
+    "domain": "youtube.com",
+    "country": "美国",
+    "desc": "全球视频内容与创作者平台",
+    "categories": [
+      "视频",
+      "社交"
+    ],
+    "rank": 2,
+    "prev_rank": 2,
+    "change": 0
+  },
+  {
+    "name": "Facebook",
+    "domain": "facebook.com",
+    "country": "美国",
+    "desc": "Meta 旗下社交网络平台",
+    "categories": [
+      "社交"
+    ],
+    "rank": 3,
+    "prev_rank": 3,
+    "change": 0
+  },
+  {
+    "name": "Instagram",
+    "domain": "instagram.com",
+    "country": "美国",
+    "desc": "图片、短视频与社交内容平台",
+    "categories": [
+      "社交"
+    ],
+    "rank": 4,
+    "prev_rank": 4,
+    "change": 0
+  },
+  {
+    "name": "X / Twitter",
+    "domain": "x.com",
+    "country": "美国",
+    "desc": "实时新闻、观点与社交平台",
+    "categories": [
+      "社交",
+      "新闻"
+    ],
+    "rank": 5,
+    "prev_rank": 5,
+    "change": 0
+  },
+  {
+    "name": "TikTok",
+    "domain": "tiktok.com",
+    "country": "中国",
+    "desc": "字节跳动旗下全球短视频平台",
+    "categories": [
+      "社交",
+      "视频"
+    ],
+    "rank": 6,
+    "prev_rank": 6,
+    "change": 0
+  },
+  {
+    "name": "Baidu",
+    "domain": "baidu.com",
+    "country": "中国",
+    "desc": "中文搜索、AI 与信息服务平台",
+    "categories": [
+      "搜索",
+      "中国"
+    ],
+    "rank": 7,
+    "prev_rank": 7,
+    "change": 0
+  },
+  {
+    "name": "Wikipedia",
+    "domain": "wikipedia.org",
+    "country": "全球",
+    "desc": "全球协作百科知识库",
+    "categories": [
+      "教育",
+      "工具"
+    ],
+    "rank": 8,
+    "prev_rank": 8,
+    "change": 0
+  },
+  {
+    "name": "Reddit",
+    "domain": "reddit.com",
+    "country": "美国",
+    "desc": "大型社区论坛与话题讨论平台",
+    "categories": [
+      "社交",
+      "社区"
+    ],
+    "rank": 9,
+    "prev_rank": 9,
+    "change": 0
+  },
+  {
+    "name": "Yahoo",
+    "domain": "yahoo.com",
+    "country": "美国",
+    "desc": "新闻、邮箱、财经与门户服务",
+    "categories": [
+      "门户",
+      "新闻"
+    ],
+    "rank": 10,
+    "prev_rank": 10,
+    "change": 0
+  },
+  {
+    "name": "Amazon",
+    "domain": "amazon.com",
+    "country": "美国",
+    "desc": "全球电商与云计算服务平台",
+    "categories": [
+      "电商",
+      "跨境电商"
+    ],
+    "rank": 11,
+    "prev_rank": 11,
+    "change": 0
+  },
+  {
+    "name": "Netflix",
+    "domain": "netflix.com",
+    "country": "美国",
+    "desc": "全球流媒体影视平台",
+    "categories": [
+      "视频"
+    ],
+    "rank": 12,
+    "prev_rank": 12,
+    "change": 0
+  },
+  {
+    "name": "Microsoft",
+    "domain": "microsoft.com",
+    "country": "美国",
+    "desc": "软件、云计算与办公生态",
+    "categories": [
+      "科技",
+      "工具"
+    ],
+    "rank": 13,
+    "prev_rank": 13,
+    "change": 0
+  },
+  {
+    "name": "LinkedIn",
+    "domain": "linkedin.com",
+    "country": "美国",
+    "desc": "职业社交与招聘平台",
+    "categories": [
+      "社交",
+      "商务"
+    ],
+    "rank": 14,
+    "prev_rank": 14,
+    "change": 0
+  },
+  {
+    "name": "Apple",
+    "domain": "apple.com",
+    "country": "美国",
+    "desc": "消费电子与数字服务生态",
+    "categories": [
+      "科技"
+    ],
+    "rank": 15,
+    "prev_rank": 15,
+    "change": 0
+  },
+  {
+    "name": "Microsoft Bing",
+    "domain": "bing.com",
+    "country": "美国",
+    "desc": "微软搜索与 Copilot 入口",
+    "categories": [
+      "搜索",
+      "AI"
+    ],
+    "rank": 16,
+    "prev_rank": 16,
+    "change": 0
+  },
+  {
+    "name": "Office",
+    "domain": "office.com",
+    "country": "美国",
+    "desc": "微软在线办公服务",
+    "categories": [
+      "工具"
+    ],
+    "rank": 17,
+    "prev_rank": 17,
+    "change": 0
+  },
+  {
+    "name": "Live",
+    "domain": "live.com",
+    "country": "美国",
+    "desc": "微软账户与邮箱服务",
+    "categories": [
+      "工具"
+    ],
+    "rank": 18,
+    "prev_rank": 18,
+    "change": 0
+  },
+  {
+    "name": "WhatsApp",
+    "domain": "whatsapp.com",
+    "country": "美国",
+    "desc": "Meta 旗下即时通讯服务",
+    "categories": [
+      "社交"
+    ],
+    "rank": 19,
+    "prev_rank": 19,
+    "change": 0
+  },
+  {
+    "name": "OpenAI",
+    "domain": "openai.com",
+    "country": "美国",
+    "desc": "AI 模型与应用服务平台",
+    "categories": [
+      "AI"
+    ],
+    "rank": 20,
+    "prev_rank": 20,
+    "change": 0
+  },
+  {
+    "name": "ChatGPT",
+    "domain": "chatgpt.com",
+    "country": "美国",
+    "desc": "OpenAI AI 对话入口",
+    "categories": [
+      "AI"
+    ],
+    "rank": 21,
+    "prev_rank": 21,
+    "change": 0
+  },
+  {
+    "name": "GitHub",
+    "domain": "github.com",
+    "country": "美国",
+    "desc": "代码托管与开发者协作平台",
+    "categories": [
+      "开发者",
+      "工具"
+    ],
+    "rank": 22,
+    "prev_rank": 22,
+    "change": 0
+  },
+  {
+    "name": "Stack Overflow",
+    "domain": "stackoverflow.com",
+    "country": "美国",
+    "desc": "程序员问答社区",
+    "categories": [
+      "开发者"
+    ],
+    "rank": 23,
+    "prev_rank": 23,
+    "change": 0
+  },
+  {
+    "name": "Cloudflare",
+    "domain": "cloudflare.com",
+    "country": "美国",
+    "desc": "CDN、DNS 与网络安全服务",
+    "categories": [
+      "开发者",
+      "云服务"
+    ],
+    "rank": 24,
+    "prev_rank": 24,
+    "change": 0
+  },
+  {
+    "name": "Google Drive",
+    "domain": "drive.google.com",
+    "country": "美国",
+    "desc": "Google 云存储与协作服务",
+    "categories": [
+      "工具"
+    ],
+    "rank": 25,
+    "prev_rank": 25,
+    "change": 0
+  },
+  {
+    "name": "Gmail",
+    "domain": "mail.google.com",
+    "country": "美国",
+    "desc": "Google 邮箱服务",
+    "categories": [
+      "工具"
+    ],
+    "rank": 26,
+    "prev_rank": 26,
+    "change": 0
+  },
+  {
+    "name": "Google Maps",
+    "domain": "maps.google.com",
+    "country": "美国",
+    "desc": "地图、导航与本地信息服务",
+    "categories": [
+      "工具"
+    ],
+    "rank": 27,
+    "prev_rank": 27,
+    "change": 0
+  },
+  {
+    "name": "Pinterest",
+    "domain": "pinterest.com",
+    "country": "美国",
+    "desc": "图片灵感与收藏平台",
+    "categories": [
+      "素材",
+      "社交"
+    ],
+    "rank": 28,
+    "prev_rank": 28,
+    "change": 0
+  },
+  {
+    "name": "Quora",
+    "domain": "quora.com",
+    "country": "美国",
+    "desc": "英文问答与知识分享社区",
+    "categories": [
+      "教育",
+      "社区"
+    ],
+    "rank": 29,
+    "prev_rank": 29,
+    "change": 0
+  },
+  {
+    "name": "Twitch",
+    "domain": "twitch.tv",
+    "country": "美国",
+    "desc": "游戏与直播内容平台",
+    "categories": [
+      "视频",
+      "社交"
+    ],
+    "rank": 30,
+    "prev_rank": 30,
+    "change": 0
+  },
+  {
+    "name": "Discord",
+    "domain": "discord.com",
+    "country": "美国",
+    "desc": "语音、社群与即时通讯平台",
+    "categories": [
+      "社交",
+      "社区"
+    ],
+    "rank": 31,
+    "prev_rank": 31,
+    "change": 0
+  },
+  {
+    "name": "Telegram",
+    "domain": "telegram.org",
+    "country": "俄罗斯",
+    "desc": "跨平台即时通讯工具",
+    "categories": [
+      "社交"
+    ],
+    "rank": 32,
+    "prev_rank": 32,
+    "change": 0
+  },
+  {
+    "name": "PayPal",
+    "domain": "paypal.com",
+    "country": "美国",
+    "desc": "全球在线支付服务",
+    "categories": [
+      "支付",
+      "跨境电商"
+    ],
+    "rank": 33,
+    "prev_rank": 33,
+    "change": 0
+  },
+  {
+    "name": "eBay",
+    "domain": "ebay.com",
+    "country": "美国",
+    "desc": "在线拍卖与电商平台",
+    "categories": [
+      "电商",
+      "跨境电商"
+    ],
+    "rank": 34,
+    "prev_rank": 34,
+    "change": 0
+  },
+  {
+    "name": "Walmart",
+    "domain": "walmart.com",
+    "country": "美国",
+    "desc": "大型零售与电商平台",
+    "categories": [
+      "电商"
+    ],
+    "rank": 35,
+    "prev_rank": 35,
+    "change": 0
+  },
+  {
+    "name": "Shopify",
+    "domain": "shopify.com",
+    "country": "加拿大",
+    "desc": "电商建站与商家 SaaS 平台",
+    "categories": [
+      "电商",
+      "跨境电商",
+      "工具"
+    ],
+    "rank": 36,
+    "prev_rank": 36,
+    "change": 0
+  },
+  {
+    "name": "Adobe",
+    "domain": "adobe.com",
+    "country": "美国",
+    "desc": "设计、创意与文档软件服务",
+    "categories": [
+      "工具",
+      "素材"
+    ],
+    "rank": 37,
+    "prev_rank": 37,
+    "change": 0
+  },
+  {
+    "name": "Canva",
+    "domain": "canva.com",
+    "country": "澳大利亚",
+    "desc": "在线设计与模板工具",
+    "categories": [
+      "工具",
+      "素材"
+    ],
+    "rank": 38,
+    "prev_rank": 38,
+    "change": 0
+  },
+  {
+    "name": "Figma",
+    "domain": "figma.com",
+    "country": "美国",
+    "desc": "在线 UI/UX 协作设计工具",
+    "categories": [
+      "工具",
+      "设计"
+    ],
+    "rank": 39,
+    "prev_rank": 39,
+    "change": 0
+  },
+  {
+    "name": "Notion",
+    "domain": "notion.so",
+    "country": "美国",
+    "desc": "文档、知识库与项目管理工具",
+    "categories": [
+      "工具"
+    ],
+    "rank": 40,
+    "prev_rank": 40,
+    "change": 0
+  },
+  {
+    "name": "Zoom",
+    "domain": "zoom.us",
+    "country": "美国",
+    "desc": "视频会议与企业协作平台",
+    "categories": [
+      "工具"
+    ],
+    "rank": 41,
+    "prev_rank": 41,
+    "change": 0
+  },
+  {
+    "name": "Slack",
+    "domain": "slack.com",
+    "country": "美国",
+    "desc": "团队即时通讯与协作平台",
+    "categories": [
+      "工具"
+    ],
+    "rank": 42,
+    "prev_rank": 42,
+    "change": 0
+  },
+  {
+    "name": "Dropbox",
+    "domain": "dropbox.com",
+    "country": "美国",
+    "desc": "云存储与文件同步服务",
+    "categories": [
+      "工具"
+    ],
+    "rank": 43,
+    "prev_rank": 43,
+    "change": 0
+  },
+  {
+    "name": "Spotify",
+    "domain": "spotify.com",
+    "country": "瑞典",
+    "desc": "音乐与播客流媒体平台",
+    "categories": [
+      "音乐"
+    ],
+    "rank": 44,
+    "prev_rank": 44,
+    "change": 0
+  },
+  {
+    "name": "IMDb",
+    "domain": "imdb.com",
+    "country": "美国",
+    "desc": "影视资料与评分数据库",
+    "categories": [
+      "影视"
+    ],
+    "rank": 45,
+    "prev_rank": 45,
+    "change": 0
+  },
+  {
+    "name": "BBC",
+    "domain": "bbc.com",
+    "country": "英国",
+    "desc": "英国公共媒体与新闻网站",
+    "categories": [
+      "新闻"
+    ],
+    "rank": 46,
+    "prev_rank": 46,
+    "change": 0
+  },
+  {
+    "name": "CNN",
+    "domain": "cnn.com",
+    "country": "美国",
+    "desc": "国际新闻媒体平台",
+    "categories": [
+      "新闻"
+    ],
+    "rank": 47,
+    "prev_rank": 47,
+    "change": 0
+  },
+  {
+    "name": "Reuters",
+    "domain": "reuters.com",
+    "country": "英国",
+    "desc": "国际通讯社与新闻服务",
+    "categories": [
+      "新闻"
+    ],
+    "rank": 48,
+    "prev_rank": 48,
+    "change": 0
+  },
+  {
+    "name": "Bloomberg",
+    "domain": "bloomberg.com",
+    "country": "美国",
+    "desc": "财经新闻与金融数据服务",
+    "categories": [
+      "新闻",
+      "财经"
+    ],
+    "rank": 49,
+    "prev_rank": 49,
+    "change": 0
+  },
+  {
+    "name": "NYTimes",
+    "domain": "nytimes.com",
+    "country": "美国",
+    "desc": "新闻媒体与数字订阅平台",
+    "categories": [
+      "新闻"
+    ],
+    "rank": 50,
+    "prev_rank": 50,
+    "change": 0
+  },
+  {
+    "name": "WSJ",
+    "domain": "wsj.com",
+    "country": "美国",
+    "desc": "财经与商业新闻媒体",
+    "categories": [
+      "新闻",
+      "财经"
+    ],
+    "rank": 51,
+    "prev_rank": 51,
+    "change": 0
+  },
+  {
+    "name": "Forbes",
+    "domain": "forbes.com",
+    "country": "美国",
+    "desc": "商业、财富与创业媒体",
+    "categories": [
+      "新闻",
+      "财经"
+    ],
+    "rank": 52,
+    "prev_rank": 52,
+    "change": 0
+  },
+  {
+    "name": "Medium",
+    "domain": "medium.com",
+    "country": "美国",
+    "desc": "长文写作与知识分享平台",
+    "categories": [
+      "博客",
+      "社区"
+    ],
+    "rank": 53,
+    "prev_rank": 53,
+    "change": 0
+  },
+  {
+    "name": "DuckDuckGo",
+    "domain": "duckduckgo.com",
+    "country": "美国",
+    "desc": "隐私搜索引擎",
+    "categories": [
+      "搜索"
+    ],
+    "rank": 54,
+    "prev_rank": 54,
+    "change": 0
+  },
+  {
+    "name": "Yandex",
+    "domain": "yandex.com",
+    "country": "俄罗斯",
+    "desc": "搜索、地图与互联网服务",
+    "categories": [
+      "搜索"
+    ],
+    "rank": 55,
+    "prev_rank": 55,
+    "change": 0
+  },
+  {
+    "name": "VK",
+    "domain": "vk.com",
+    "country": "俄罗斯",
+    "desc": "俄罗斯大型社交网络",
+    "categories": [
+      "社交"
+    ],
+    "rank": 56,
+    "prev_rank": 56,
+    "change": 0
+  },
+  {
+    "name": "Naver",
+    "domain": "naver.com",
+    "country": "韩国",
+    "desc": "韩国搜索与门户平台",
+    "categories": [
+      "搜索",
+      "门户"
+    ],
+    "rank": 57,
+    "prev_rank": 57,
+    "change": 0
+  },
+  {
+    "name": "Kakao",
+    "domain": "kakao.com",
+    "country": "韩国",
+    "desc": "通讯、内容与生活服务平台",
+    "categories": [
+      "社交"
+    ],
+    "rank": 58,
+    "prev_rank": 58,
+    "change": 0
+  },
+  {
+    "name": "Line",
+    "domain": "line.me",
+    "country": "日本",
+    "desc": "即时通讯与数字服务平台",
+    "categories": [
+      "社交"
+    ],
+    "rank": 59,
+    "prev_rank": 59,
+    "change": 0
+  },
+  {
+    "name": "Rakuten",
+    "domain": "rakuten.co.jp",
+    "country": "日本",
+    "desc": "日本电商与金融生态平台",
+    "categories": [
+      "电商"
+    ],
+    "rank": 60,
+    "prev_rank": 60,
+    "change": 0
+  },
+  {
+    "name": "Yahoo Japan",
+    "domain": "yahoo.co.jp",
+    "country": "日本",
+    "desc": "日本门户、新闻与搜索服务",
+    "categories": [
+      "门户",
+      "新闻"
+    ],
+    "rank": 61,
+    "prev_rank": 61,
+    "change": 0
+  },
+  {
+    "name": "Nikkei",
+    "domain": "nikkei.com",
+    "country": "日本",
+    "desc": "日本财经新闻媒体",
+    "categories": [
+      "新闻",
+      "财经"
+    ],
+    "rank": 62,
+    "prev_rank": 62,
+    "change": 0
+  },
+  {
+    "name": "Samsung",
+    "domain": "samsung.com",
+    "country": "韩国",
+    "desc": "电子产品与科技服务平台",
+    "categories": [
+      "科技"
+    ],
+    "rank": 63,
+    "prev_rank": 63,
+    "change": 0
+  },
+  {
+    "name": "Sony",
+    "domain": "sony.com",
+    "country": "日本",
+    "desc": "电子、娱乐与游戏业务",
+    "categories": [
+      "科技"
+    ],
+    "rank": 64,
+    "prev_rank": 64,
+    "change": 0
+  },
+  {
+    "name": "Tencent",
+    "domain": "qq.com",
+    "country": "中国",
+    "desc": "腾讯门户、社交与内容服务",
+    "categories": [
+      "中国",
+      "门户"
+    ],
+    "rank": 65,
+    "prev_rank": 65,
+    "change": 0
+  },
+  {
+    "name": "WeChat",
+    "domain": "wechat.com",
+    "country": "中国",
+    "desc": "微信国际入口与通讯服务",
+    "categories": [
+      "中国",
+      "社交"
+    ],
+    "rank": 66,
+    "prev_rank": 66,
+    "change": 0
+  },
+  {
+    "name": "Weibo",
+    "domain": "weibo.com",
+    "country": "中国",
+    "desc": "中文社交媒体与热点平台",
+    "categories": [
+      "中国",
+      "社交"
+    ],
+    "rank": 67,
+    "prev_rank": 67,
+    "change": 0
+  },
+  {
+    "name": "Zhihu",
+    "domain": "zhihu.com",
+    "country": "中国",
+    "desc": "中文问答与内容社区",
+    "categories": [
+      "中国",
+      "社区"
+    ],
+    "rank": 68,
+    "prev_rank": 68,
+    "change": 0
+  },
+  {
+    "name": "Bilibili",
+    "domain": "bilibili.com",
+    "country": "中国",
+    "desc": "视频社区与年轻文化平台",
+    "categories": [
+      "中国",
+      "视频"
+    ],
+    "rank": 69,
+    "prev_rank": 69,
+    "change": 0
+  },
+  {
+    "name": "Douyin",
+    "domain": "douyin.com",
+    "country": "中国",
+    "desc": "国内短视频与直播平台",
+    "categories": [
+      "中国",
+      "视频",
+      "社交"
+    ],
+    "rank": 70,
+    "prev_rank": 70,
+    "change": 0
+  },
+  {
+    "name": "Taobao",
+    "domain": "taobao.com",
+    "country": "中国",
+    "desc": "阿里巴巴 C2C 电商平台",
+    "categories": [
+      "中国",
+      "电商"
+    ],
+    "rank": 71,
+    "prev_rank": 71,
+    "change": 0
+  },
+  {
+    "name": "Tmall",
+    "domain": "tmall.com",
+    "country": "中国",
+    "desc": "品牌电商与 B2C 平台",
+    "categories": [
+      "中国",
+      "电商"
+    ],
+    "rank": 72,
+    "prev_rank": 72,
+    "change": 0
+  },
+  {
+    "name": "JD",
+    "domain": "jd.com",
+    "country": "中国",
+    "desc": "自营电商与物流服务平台",
+    "categories": [
+      "中国",
+      "电商"
+    ],
+    "rank": 73,
+    "prev_rank": 73,
+    "change": 0
+  },
+  {
+    "name": "Pinduoduo",
+    "domain": "pinduoduo.com",
+    "country": "中国",
+    "desc": "社交电商与低价消费平台",
+    "categories": [
+      "中国",
+      "电商"
+    ],
+    "rank": 74,
+    "prev_rank": 74,
+    "change": 0
+  },
+  {
+    "name": "AliExpress",
+    "domain": "aliexpress.com",
+    "country": "中国",
+    "desc": "阿里巴巴跨境电商平台",
+    "categories": [
+      "中国",
+      "电商",
+      "跨境电商"
+    ],
+    "rank": 75,
+    "prev_rank": 75,
+    "change": 0
+  },
+  {
+    "name": "Alibaba",
+    "domain": "alibaba.com",
+    "country": "中国",
+    "desc": "B2B 跨境贸易平台",
+    "categories": [
+      "中国",
+      "电商",
+      "跨境电商",
+      "外贸"
+    ],
+    "rank": 76,
+    "prev_rank": 76,
+    "change": 0
+  },
+  {
+    "name": "1688",
+    "domain": "1688.com",
+    "country": "中国",
+    "desc": "中国内贸批发采购平台",
+    "categories": [
+      "中国",
+      "电商",
+      "外贸"
+    ],
+    "rank": 77,
+    "prev_rank": 77,
+    "change": 0
+  },
+  {
+    "name": "Meituan",
+    "domain": "meituan.com",
+    "country": "中国",
+    "desc": "本地生活、外卖与到店服务",
+    "categories": [
+      "中国",
+      "本地生活"
+    ],
+    "rank": 78,
+    "prev_rank": 78,
+    "change": 0
+  },
+  {
+    "name": "Xiaohongshu",
+    "domain": "xiaohongshu.com",
+    "country": "中国",
+    "desc": "生活方式与消费内容社区",
+    "categories": [
+      "中国",
+      "社交"
+    ],
+    "rank": 79,
+    "prev_rank": 79,
+    "change": 0
+  },
+  {
+    "name": "Ctrip",
+    "domain": "ctrip.com",
+    "country": "中国",
+    "desc": "在线旅行与酒店机票服务",
+    "categories": [
+      "中国",
+      "旅游"
+    ],
+    "rank": 80,
+    "prev_rank": 80,
+    "change": 0
+  },
+  {
+    "name": "Amap",
+    "domain": "amap.com",
+    "country": "中国",
+    "desc": "高德地图与导航服务",
+    "categories": [
+      "中国",
+      "工具"
+    ],
+    "rank": 81,
+    "prev_rank": 81,
+    "change": 0
+  },
+  {
+    "name": "Baidu Netdisk",
+    "domain": "pan.baidu.com",
+    "country": "中国",
+    "desc": "个人云存储服务",
+    "categories": [
+      "中国",
+      "工具"
+    ],
+    "rank": 82,
+    "prev_rank": 82,
+    "change": 0
+  },
+  {
+    "name": "163",
+    "domain": "163.com",
+    "country": "中国",
+    "desc": "网易门户、邮箱与内容服务",
+    "categories": [
+      "中国",
+      "门户"
+    ],
+    "rank": 83,
+    "prev_rank": 83,
+    "change": 0
+  },
+  {
+    "name": "Sina",
+    "domain": "sina.com.cn",
+    "country": "中国",
+    "desc": "门户新闻与内容服务",
+    "categories": [
+      "中国",
+      "门户",
+      "新闻"
+    ],
+    "rank": 84,
+    "prev_rank": 84,
+    "change": 0
+  },
+  {
+    "name": "Sohu",
+    "domain": "sohu.com",
+    "country": "中国",
+    "desc": "门户新闻与视频服务",
+    "categories": [
+      "中国",
+      "门户",
+      "新闻"
+    ],
+    "rank": 85,
+    "prev_rank": 85,
+    "change": 0
+  },
+  {
+    "name": "iQIYI",
+    "domain": "iqiyi.com",
+    "country": "中国",
+    "desc": "在线视频与娱乐内容平台",
+    "categories": [
+      "中国",
+      "视频"
+    ],
+    "rank": 86,
+    "prev_rank": 86,
+    "change": 0
+  },
+  {
+    "name": "Tencent Video",
+    "domain": "v.qq.com",
+    "country": "中国",
+    "desc": "腾讯在线视频平台",
+    "categories": [
+      "中国",
+      "视频"
+    ],
+    "rank": 87,
+    "prev_rank": 87,
+    "change": 0
+  },
+  {
+    "name": "Youku",
+    "domain": "youku.com",
+    "country": "中国",
+    "desc": "阿里旗下长视频平台",
+    "categories": [
+      "中国",
+      "视频"
+    ],
+    "rank": 88,
+    "prev_rank": 88,
+    "change": 0
+  },
+  {
+    "name": "Douban",
+    "domain": "douban.com",
+    "country": "中国",
+    "desc": "书影音评分与兴趣社区",
+    "categories": [
+      "中国",
+      "社区"
+    ],
+    "rank": 89,
+    "prev_rank": 89,
+    "change": 0
+  },
+  {
+    "name": "CSDN",
+    "domain": "csdn.net",
+    "country": "中国",
+    "desc": "中文 IT 技术社区",
+    "categories": [
+      "中国",
+      "开发者"
+    ],
+    "rank": 90,
+    "prev_rank": 90,
+    "change": 0
+  },
+  {
+    "name": "Juejin",
+    "domain": "juejin.cn",
+    "country": "中国",
+    "desc": "开发者技术社区",
+    "categories": [
+      "中国",
+      "开发者"
+    ],
+    "rank": 91,
+    "prev_rank": 91,
+    "change": 0
+  },
+  {
+    "name": "Eastmoney",
+    "domain": "eastmoney.com",
+    "country": "中国",
+    "desc": "财经资讯与股票数据平台",
+    "categories": [
+      "中国",
+      "财经"
+    ],
+    "rank": 92,
+    "prev_rank": 92,
+    "change": 0
+  },
+  {
+    "name": "Snowball",
+    "domain": "xueqiu.com",
+    "country": "中国",
+    "desc": "投资社交与股票讨论平台",
+    "categories": [
+      "中国",
+      "财经",
+      "社区"
+    ],
+    "rank": 93,
+    "prev_rank": 93,
+    "change": 0
+  },
+  {
+    "name": "Alipay",
+    "domain": "alipay.com",
+    "country": "中国",
+    "desc": "第三方支付与金融服务平台",
+    "categories": [
+      "中国",
+      "支付"
+    ],
+    "rank": 94,
+    "prev_rank": 94,
+    "change": 0
+  },
+  {
+    "name": "AWS",
+    "domain": "aws.amazon.com",
+    "country": "美国",
+    "desc": "亚马逊云计算服务",
+    "categories": [
+      "云服务",
+      "开发者"
+    ],
+    "rank": 95,
+    "prev_rank": 95,
+    "change": 0
+  },
+  {
+    "name": "Azure",
+    "domain": "azure.microsoft.com",
+    "country": "美国",
+    "desc": "微软云计算平台",
+    "categories": [
+      "云服务",
+      "开发者"
+    ],
+    "rank": 96,
+    "prev_rank": 96,
+    "change": 0
+  },
+  {
+    "name": "Google Cloud",
+    "domain": "cloud.google.com",
+    "country": "美国",
+    "desc": "Google 云计算平台",
+    "categories": [
+      "云服务",
+      "开发者"
+    ],
+    "rank": 97,
+    "prev_rank": 97,
+    "change": 0
+  },
+  {
+    "name": "Aliyun",
+    "domain": "aliyun.com",
+    "country": "中国",
+    "desc": "阿里巴巴云计算平台",
+    "categories": [
+      "中国",
+      "云服务"
+    ],
+    "rank": 98,
+    "prev_rank": 98,
+    "change": 0
+  },
+  {
+    "name": "Tencent Cloud",
+    "domain": "cloud.tencent.com",
+    "country": "中国",
+    "desc": "腾讯云服务平台",
+    "categories": [
+      "中国",
+      "云服务"
+    ],
+    "rank": 99,
+    "prev_rank": 99,
+    "change": 0
+  },
+  {
+    "name": "Vercel",
+    "domain": "vercel.com",
+    "country": "美国",
+    "desc": "前端部署与 Serverless 平台",
+    "categories": [
+      "开发者",
+      "云服务"
+    ],
+    "rank": 100,
+    "prev_rank": 100,
+    "change": 0
+  },
+  {
+    "name": "Netlify",
+    "domain": "netlify.com",
+    "country": "美国",
+    "desc": "静态网站与前端部署平台",
+    "categories": [
+      "开发者",
+      "云服务"
+    ],
+    "rank": 101,
+    "prev_rank": 101,
+    "change": 0
+  },
+  {
+    "name": "DigitalOcean",
+    "domain": "digitalocean.com",
+    "country": "美国",
+    "desc": "开发者云服务器平台",
+    "categories": [
+      "开发者",
+      "云服务"
+    ],
+    "rank": 102,
+    "prev_rank": 102,
+    "change": 0
+  },
+  {
+    "name": "Hugging Face",
+    "domain": "huggingface.co",
+    "country": "美国",
+    "desc": "AI 模型、数据集与社区平台",
+    "categories": [
+      "AI",
+      "开发者"
+    ],
+    "rank": 103,
+    "prev_rank": 103,
+    "change": 0
+  },
+  {
+    "name": "Kaggle",
+    "domain": "kaggle.com",
+    "country": "美国",
+    "desc": "数据科学竞赛与数据集平台",
+    "categories": [
+      "AI",
+      "开发者",
+      "教育"
+    ],
+    "rank": 104,
+    "prev_rank": 104,
+    "change": 0
+  },
+  {
+    "name": "Coursera",
+    "domain": "coursera.org",
+    "country": "美国",
+    "desc": "在线课程与大学合作平台",
+    "categories": [
+      "教育"
+    ],
+    "rank": 105,
+    "prev_rank": 105,
+    "change": 0
+  },
+  {
+    "name": "edX",
+    "domain": "edx.org",
+    "country": "美国",
+    "desc": "在线大学课程平台",
+    "categories": [
+      "教育"
+    ],
+    "rank": 106,
+    "prev_rank": 106,
+    "change": 0
+  },
+  {
+    "name": "Khan Academy",
+    "domain": "khanacademy.org",
+    "country": "美国",
+    "desc": "免费在线教育平台",
+    "categories": [
+      "教育"
+    ],
+    "rank": 107,
+    "prev_rank": 107,
+    "change": 0
+  },
+  {
+    "name": "Duolingo",
+    "domain": "duolingo.com",
+    "country": "美国",
+    "desc": "语言学习应用平台",
+    "categories": [
+      "教育"
+    ],
+    "rank": 108,
+    "prev_rank": 108,
+    "change": 0
+  },
+  {
+    "name": "LeetCode",
+    "domain": "leetcode.com",
+    "country": "美国",
+    "desc": "程序员算法刷题平台",
+    "categories": [
+      "开发者",
+      "教育"
+    ],
+    "rank": 109,
+    "prev_rank": 109,
+    "change": 0
+  },
+  {
+    "name": "Steam",
+    "domain": "steampowered.com",
+    "country": "美国",
+    "desc": "PC 游戏发行与社区平台",
+    "categories": [
+      "游戏"
+    ],
+    "rank": 110,
+    "prev_rank": 110,
+    "change": 0
+  },
+  {
+    "name": "Epic Games",
+    "domain": "epicgames.com",
+    "country": "美国",
+    "desc": "游戏发行与虚幻引擎平台",
+    "categories": [
+      "游戏"
+    ],
+    "rank": 111,
+    "prev_rank": 111,
+    "change": 0
+  },
+  {
+    "name": "Roblox",
+    "domain": "roblox.com",
+    "country": "美国",
+    "desc": "UGC 游戏与虚拟社区平台",
+    "categories": [
+      "游戏"
+    ],
+    "rank": 112,
+    "prev_rank": 112,
+    "change": 0
+  },
+  {
+    "name": "Booking",
+    "domain": "booking.com",
+    "country": "荷兰",
+    "desc": "全球住宿预订平台",
+    "categories": [
+      "旅游"
+    ],
+    "rank": 113,
+    "prev_rank": 113,
+    "change": 0
+  },
+  {
+    "name": "Airbnb",
+    "domain": "airbnb.com",
+    "country": "美国",
+    "desc": "民宿短租与旅行平台",
+    "categories": [
+      "旅游"
+    ],
+    "rank": 114,
+    "prev_rank": 114,
+    "change": 0
+  },
+  {
+    "name": "Tripadvisor",
+    "domain": "tripadvisor.com",
+    "country": "美国",
+    "desc": "旅行点评与酒店攻略平台",
+    "categories": [
+      "旅游"
+    ],
+    "rank": 115,
+    "prev_rank": 115,
+    "change": 0
+  },
+  {
+    "name": "Grab",
+    "domain": "grab.com",
+    "country": "新加坡",
+    "desc": "东南亚出行与生活服务平台",
+    "categories": [
+      "本地生活"
+    ],
+    "rank": 116,
+    "prev_rank": 116,
+    "change": 0
+  }
+]

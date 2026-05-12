@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://116.ccwu.cc/sitemap.xml
