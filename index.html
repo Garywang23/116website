@@ -1,224 +1,149 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>116导航</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Microsoft YaHei", sans-serif;
-            background: #ffffff;
-            color: #333;
-            min-height: 100vh;
-            padding: 30px 20px;
-        }
-        h1 {
-            text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 30px;
-            color: #1a73e8;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 14px;
-            max-width: 1600px;
-            margin: 0 auto;
-        }
-        .item {
-            display: flex;
-            align-items: flex-start;
-            background: #f8f9fa;
-            border: 1px solid #e8e8e8;
-            border-radius: 10px;
-            padding: 14px 16px;
-            text-decoration: none;
-            color: #333;
-            transition: box-shadow 0.2s, transform 0.1s;
-        }
-        .item:hover {
-            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-            transform: translateY(-2px);
-        }
-        .rank {
-            font-size: 0.8rem;
-            font-weight: bold;
-            color: #fff;
-            background: #1a73e8;
-            border-radius: 50%;
-            min-width: 28px;
-            height: 28px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-        .rank.top3 { background: #e53935; }
-        .rank.top10 { background: #ff9800; }
-        .info {
-            margin-left: 12px;
-            overflow: hidden;
-        }
-        .name {
-            font-size: 1rem;
-            font-weight: 600;
-            color: #1a1a1a;
-            margin-bottom: 4px;
-        }
-        .desc {
-            font-size: 0.8rem;
-            color: #666;
-            line-height: 1.4;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-        @media (max-width: 700px) {
-            .grid { grid-template-columns: 1fr; }
-        }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>116导航｜全球权重前116名</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --blue:#1a73e8;--text:#172033;--muted:#667085;--line:#e6eaf0;
+  --card:#f8fafc;--shadow:0 10px 28px rgba(16,35,75,.09);
+}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Microsoft YaHei",Arial,sans-serif;
+  background:#fff;color:var(--text);min-height:100vh;padding:42px 20px 52px;
+}
+.header{max-width:1840px;margin:0 auto 34px;text-align:center;position:relative}
+h1{font-size:44px;line-height:1;color:var(--blue);font-weight:800;letter-spacing:.5px}
+.subtitle{font-size:14px;color:#667085;margin-top:14px}
+.source-note{
+  position:absolute;right:0;top:4px;text-align:right;font-size:12px;line-height:1.7;color:#8a94a6;
+}
+.grid{
+  max-width:1840px;margin:0 auto;display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));gap:17px 18px;
+}
+.item{
+  position:relative;display:flex;align-items:center;gap:16px;min-height:112px;
+  border:1px solid var(--line);border-radius:12px;padding:18px 54px 18px 18px;
+  background:var(--card);text-decoration:none;color:inherit;transition:.18s ease;
+}
+.item:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:#d7deea}
+.logo{
+  width:64px;height:64px;border-radius:16px;background:#fff;border:1px solid rgba(0,0,0,.08);
+  object-fit:contain;padding:8px;box-shadow:0 6px 16px rgba(15,23,42,.06);flex:0 0 64px;
+}
+.rank{
+  position:absolute;right:16px;top:14px;min-width:28px;height:24px;padding:0 8px;border-radius:999px;
+  display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:800;
+  background:#1a73e8;line-height:1;
+}
+.rank.top3{background:#ef3333}.rank.top10{background:#ff9700}
+.info{min-width:0;padding-top:2px}
+.name-row{display:flex;align-items:center;gap:8px;margin-bottom:7px;min-width:0}
+.name{font-size:20px;font-weight:800;color:#111827;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.badge{font-size:12px;border-radius:999px;padding:2px 8px;color:#536070;background:rgba(255,255,255,.72);border:1px solid rgba(15,23,42,.06);white-space:nowrap}
+.desc{font-size:14.5px;line-height:1.55;color:#4b5565;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.domain{font-size:12px;color:#7b8794;margin-top:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.item[data-country="中国"]{background:linear-gradient(135deg,#fff7f2,#f8fafc 62%)}
+.item[data-country="美国"]{background:linear-gradient(135deg,#f2f7ff,#f8fafc 62%)}
+.item[data-country="全球"]{background:linear-gradient(135deg,#f0fbff,#f8fafc 62%)}
+.item[data-country="英国"]{background:linear-gradient(135deg,#f8f3ff,#f8fafc 62%)}
+.item[data-country="日本"]{background:linear-gradient(135deg,#fff3f6,#f8fafc 62%)}
+.item[data-country="韩国"]{background:linear-gradient(135deg,#f2f8ff,#f8fafc 62%)}
+.item[data-country="俄罗斯"]{background:linear-gradient(135deg,#f3f5ff,#f8fafc 62%)}
+.item[data-country="加拿大"]{background:linear-gradient(135deg,#fff2f2,#f8fafc 62%)}
+.item[data-country="澳大利亚"]{background:linear-gradient(135deg,#f1fff7,#f8fafc 62%)}
+.item[data-country="新加坡"]{background:linear-gradient(135deg,#fff5f0,#f8fafc 62%)}
+.item[data-country="印度"]{background:linear-gradient(135deg,#fff9e8,#f8fafc 62%)}
+.item[data-country="荷兰"]{background:linear-gradient(135deg,#fff6ec,#f8fafc 62%)}
+.item[data-country="瑞典"]{background:linear-gradient(135deg,#eef8ff,#f8fafc 62%)}
+@media(max-width:1200px){.grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}h1{font-size:38px}.source-note{position:static;text-align:center;margin-top:10px}}
+@media(max-width:560px){body{padding:28px 12px}.grid{grid-template-columns:1fr}.item{min-height:104px}}
+</style>
 </head>
 <body>
-    <h1>116导航</h1>
-    <div class="grid" id="grid"></div>
-    <script>
-        const sites = [
-            ["Google", "https://www.google.com", "全球最大搜索引擎，提供搜索、广告、云计算等服务，母公司Alphabet"],
-            ["YouTube", "https://www.youtube.com", "全球最大视频分享平台，Google旗下，月活超20亿用户"],
-            ["Facebook", "https://www.facebook.com", "Meta旗下社交平台，全球最大社交网络，月活近30亿"],
-            ["Twitter/X", "https://www.x.com", "实时社交媒体平台，2023年更名为X，马斯克旗下"],
-            ["Instagram", "https://www.instagram.com", "Meta旗下图片和短视频社交平台，全球月活超20亿"],
-            ["百度", "https://www.baidu.com", "中国最大搜索引擎，提供搜索、AI、自动驾驶等服务"],
-            ["微博", "https://weibo.com", "中国领先的社交媒体平台，实时热点和公众讨论聚集地"],
-            ["知乎", "https://www.zhihu.com", "中文互联网最大问答社区，高质量内容创作与分享平台"],
-            ["哔哩哔哩", "https://www.bilibili.com", "中国年轻人聚集的视频社区，ACG文化发源地，月活超3亿"],
-            ["抖音", "https://www.douyin.com", "字节跳动旗下短视频平台，国内日活超7亿"],
-            ["淘宝", "https://www.taobao.com", "阿里巴巴旗下C2C电商平台，中国最大网购平台之一"],
-            ["京东", "https://www.jd.com", "中国领先的自营式B2C电商，以正品和物流速度著称"],
-            ["天猫", "https://www.tmall.com", "阿里巴巴旗下B2C平台，品牌官方旗舰店聚集地"],
-            ["拼多多", "https://www.pinduoduo.com", "社交电商平台，以拼团模式和低价商品快速崛起"],
-            ["Amazon", "https://www.amazon.com", "全球最大电商平台，同时是云计算(AWS)领导者"],
-            ["Wikipedia", "https://www.wikipedia.org", "全球最大免费百科全书，由志愿者协作编写，支持300+语言"],
-            ["Reddit", "https://www.reddit.com", "美国最大论坛社区，被称为'互联网首页'，话题覆盖极广"],
-            ["Netflix", "https://www.netflix.com", "全球最大流媒体平台，原创内容制作巨头，订阅用户超2亿"],
-            ["TikTok", "https://www.tiktok.com", "字节跳动旗下海外短视频平台，全球下载量超40亿次"],
-            ["LinkedIn", "https://www.linkedin.com", "微软旗下职业社交平台，全球最大职场人脉网络"],
-            ["微信读书", "https://weread.qq.com", "腾讯旗下阅读平台，支持电子书和听书，社交阅读体验"],
-            ["腾讯新闻", "https://news.qq.com", "腾讯旗下新闻资讯平台，覆盖时事、财经、科技等领域"],
-            ["网易", "https://www.163.com", "中国综合互联网公司，涵盖新闻、游戏、音乐、教育等"],
-            ["新浪", "https://www.sina.com.cn", "中国老牌门户网站，提供新闻、体育、财经等综合资讯"],
-            ["搜狐", "https://www.sohu.com", "中国综合门户网站，涵盖新闻、视频、游戏等业务"],
-            ["优酷", "https://www.youku.com", "阿里巴巴旗下视频平台，国内主流长视频网站之一"],
-            ["爱奇艺", "https://www.iqiyi.com", "百度旗下视频平台，中国领先的在线娱乐服务提供商"],
-            ["腾讯视频", "https://v.qq.com", "腾讯旗下视频流媒体平台，付费会员超1亿"],
-            ["芒果TV", "https://www.mgtv.com", "湖南广电旗下视频平台，综艺和自制内容为特色"],
-            ["豆瓣", "https://www.douban.com", "中国文艺社区，提供书影音评分、小组讨论等功能"],
-            ["GitHub", "https://github.com", "全球最大代码托管平台，微软旗下，开发者协作核心工具"],
-            ["Stack Overflow", "https://stackoverflow.com", "全球最大程序员问答社区，技术问题首选搜索来源"],
-            ["ChatGPT", "https://chat.openai.com", "OpenAI开发的AI对话工具，引领生成式AI浪潮"],
-            ["Claude", "https://claude.ai", "Anthropic开发的AI助手，以安全性和长文本处理见长"],
-            ["Notion", "https://www.notion.so", "一体化协作工具，集笔记、文档、项目管理于一身"],
-            ["Figma", "https://www.figma.com", "基于浏览器的UI设计工具，团队协作设计行业标准"],
-            ["Canva", "https://www.canva.com", "在线平面设计平台，模板丰富，零基础也能做设计"],
-            ["Spotify", "https://www.spotify.com", "全球最大音乐流媒体平台，曲库超1亿首，付费用户超2亿"],
-            ["Apple", "https://www.apple.com", "全球市值最高科技公司，iPhone/Mac/iPad生态系统"],
-            ["Microsoft", "https://www.microsoft.com", "全球软件巨头，Windows/Office/Azure/GitHub母公司"],
-            ["Gmail", "https://mail.google.com", "Google免费邮箱服务，全球用户超18亿，企业级安全"],
-            ["Outlook", "https://outlook.live.com", "微软免费邮箱服务，与Office 365深度集成"],
-            ["Yahoo", "https://www.yahoo.com", "美国老牌互联网公司，提供邮箱、新闻、搜索等服务"],
-            ["Bing", "https://www.bing.com", "微软搜索引擎，已集成AI Copilot，全球份额第二"],
-            ["DuckDuckGo", "https://duckduckgo.com", "注重隐私的搜索引擎，不追踪用户，不做个性化广告"],
-            ["Twitch", "https://www.twitch.tv", "Amazon旗下游戏直播平台，全球最大游戏直播社区"],
-            ["Discord", "https://discord.com", "语音/文字社群平台，游戏玩家和开发者社区首选"],
-            ["Telegram", "https://telegram.org", "加密即时通讯工具，注重隐私，支持大群组和频道"],
-            ["WhatsApp", "https://web.whatsapp.com", "Meta旗下即时通讯应用，全球月活超20亿"],
-            ["Pinterest", "https://www.pinterest.com", "图片灵感发现平台，设计师和创意工作者常用"],
-            ["Tumblr", "https://www.tumblr.com", "轻博客社交平台，以创意内容和亚文化社区著称"],
-            ["Quora", "https://www.quora.com", "英文问答社区，专家和专业人士分享知识的平台"],
-            ["Medium", "https://medium.com", "英文博客平台，高质量长文写作和阅读社区"],
-            ["CNN", "https://www.cnn.com", "美国有线电视新闻网，全球知名24小时新闻频道"],
-            ["BBC", "https://www.bbc.com", "英国广播公司，全球最大公共广播机构，新闻权威"],
-            ["纽约时报", "https://www.nytimes.com", "美国最具影响力报纸之一，数字订阅用户超千万"],
-            ["华尔街日报", "https://www.wsj.com", "全球顶级财经媒体，商业和金融新闻权威来源"],
-            ["Forbes", "https://www.forbes.com", "美国商业杂志，以富豪榜和企业排名闻名全球"],
-            ["Bloomberg", "https://www.bloomberg.com", "全球领先财经资讯和数据服务商，金融终端行业标准"],
-            ["Reuters", "https://www.reuters.com", "路透社，全球最大国际通讯社之一，新闻中立客观"],
-            ["eBay", "https://www.ebay.com", "全球知名在线拍卖和购物网站，C2C电商先驱"],
-            ["Walmart", "https://www.walmart.com", "全球最大零售商，线上线下融合，年营收超5000亿美元"],
-            ["Shopify", "https://www.shopify.com", "电商建站SaaS平台，帮助商家快速搭建独立在线商店"],
-            ["AliExpress", "https://www.aliexpress.com", "阿里巴巴旗下跨境电商平台，面向全球消费者"],
-            ["唯品会", "https://www.vip.com", "中国品牌特卖电商，主打折扣正品，女性用户为主"],
-            ["苏宁", "https://www.suning.com", "中国综合零售企业，线上线下融合的家电3C平台"],
-            ["小红书", "https://www.xiaohongshu.com", "生活方式分享社区，种草和消费决策平台，月活超2亿"],
-            ["美团", "https://www.meituan.com", "中国最大本地生活服务平台，覆盖外卖、酒旅、到店"],
-            ["饿了么", "https://www.ele.me", "阿里巴巴旗下外卖平台，中国第二大在线外卖服务"],
-            ["携程", "https://www.ctrip.com", "中国最大在线旅游服务商，覆盖机票、酒店、度假"],
-            ["去哪儿", "https://www.qunar.com", "携程旗下旅游搜索比价平台，主打性价比出行"],
-            ["飞猪", "https://www.fliggy.com", "阿里巴巴旗下在线旅游平台，年轻人出行首选之一"],
-            ["Booking", "https://www.booking.com", "全球最大在线住宿预订平台，覆盖220+国家和地区"],
-            ["Airbnb", "https://www.airbnb.com", "全球民宿短租平台，颠覆传统住宿行业的共享经济代表"],
-            ["Google Maps", "https://maps.google.com", "全球使用最广的地图服务，提供导航、街景、商户信息"],
-            ["高德地图", "https://www.amap.com", "阿里旗下导航和地图服务，中国市场占有率领先"],
-            ["Zoom", "https://zoom.us", "视频会议平台，疫情期间爆发式增长，企业远程协作首选"],
-            ["Slack", "https://slack.com", "Salesforce旗下企业即时通讯工具，团队协作标配"],
-            ["Trello", "https://trello.com", "Atlassian旗下看板式项目管理工具，简洁直观"],
-            ["Dropbox", "https://www.dropbox.com", "云存储和文件同步服务先驱，个人和团队文件管理"],
-            ["Google Drive", "https://drive.google.com", "Google云存储服务，与Google Workspace深度集成"],
-            ["iCloud", "https://www.icloud.com", "Apple云服务，苹果设备数据同步和存储核心"],
-            ["百度网盘", "https://pan.baidu.com", "中国最大个人云存储平台，用户超8亿"],
-            ["阿里云盘", "https://www.aliyundrive.com", "阿里巴巴旗下个人云盘，不限速，主打大文件存储"],
-            ["CSDN", "https://www.csdn.net", "中国最大IT技术社区，开发者学习和交流平台"],
-            ["掘金", "https://juejin.cn", "字节跳动旗下技术社区，前端和移动开发者聚集地"],
-            ["V2EX", "https://www.v2ex.com", "创意工作者社区，程序员和设计师讨论技术与生活"],
-            ["少数派", "https://sspai.com", "高质量数字生活内容平台，效率工具和App推荐"],
-            ["IT之家", "https://www.ithome.com", "中国知名科技媒体，快速报道IT和数码行业动态"],
-            ["36氪", "https://36kr.com", "中国领先科技商业媒体，关注创业、投资和新经济"],
-            ["虎嗅", "https://www.huxiu.com", "中国商业科技资讯平台，深度分析和独到观点"],
-            ["雪球", "https://xueqiu.com", "投资者社交平台，股票讨论和投资策略分享社区"],
-            ["东方财富", "https://www.eastmoney.com", "中国领先财经门户，提供行情、数据、资讯一站式服务"],
-            ["同花顺", "https://www.10jqka.com.cn", "中国知名金融数据和炒股软件提供商"],
-            ["支付宝", "https://www.alipay.com", "蚂蚁集团旗下，中国最大第三方支付平台，用户超10亿"],
-            ["PayPal", "https://www.paypal.com", "全球领先在线支付平台，支持200+国家和地区"],
-            ["Stripe", "https://stripe.com", "开发者友好的在线支付基础设施，互联网企业首选"],
-            ["Coursera", "https://www.coursera.org", "全球在线教育平台，与顶尖大学合作提供课程和学位"],
-            ["edX", "https://www.edx.org", "哈佛MIT创办的在线学习平台，提供免费大学课程"],
-            ["可汗学院", "https://www.khanacademy.org", "免费在线教育平台，覆盖数学、科学等K-12课程"],
-            ["中国大学MOOC", "https://www.icourse163.org", "网易与高教社合作，中国高校在线开放课程平台"],
-            ["Duolingo", "https://www.duolingo.com", "全球最受欢迎的语言学习App，游戏化教学方式"],
-            ["LeetCode", "https://leetcode.com", "程序员刷题平台，面试算法题练习首选，全球用户超千万"],
-            ["Kaggle", "https://www.kaggle.com", "Google旗下数据科学竞赛平台，机器学习社区"],
-            ["Hugging Face", "https://huggingface.co", "AI模型开源社区，提供模型托管、数据集和推理API"],
-            ["Vercel", "https://vercel.com", "前端部署平台，Next.js母公司，Serverless托管首选"],
-            ["Netlify", "https://www.netlify.com", "静态网站和Jamstack应用部署平台，开发者体验优秀"],
-            ["Cloudflare", "https://www.cloudflare.com", "全球CDN和网络安全服务商，保护和加速互联网"],
-            ["DigitalOcean", "https://www.digitalocean.com", "面向开发者的云计算平台，简单易用，性价比高"],
-            ["AWS", "https://aws.amazon.com", "亚马逊云服务，全球市场份额第一的云计算平台"],
-            ["阿里云", "https://www.aliyun.com", "阿里巴巴旗下云计算平台，亚太市场份额领先"],
-            ["腾讯云", "https://cloud.tencent.com", "腾讯旗下云服务，游戏和社交场景优势明显"],
-            ["Steam", "https://store.steampowered.com", "Valve旗下PC游戏分发平台，全球最大数字游戏商店"],
-            ["Epic Games", "https://www.epicgames.com", "虚幻引擎开发商，Epic Games Store每周免费游戏"],
-            ["IMDb", "https://www.imdb.com", "Amazon旗下全球最大电影数据库，影视评分权威来源"],
-            ["Dribbble", "https://dribbble.com", "设计师作品展示社区，UI/UX设计灵感来源"],
-            ["Behance", "https://www.behance.net", "Adobe旗下创意作品展示平台，设计师作品集首选"],
-            ["Unsplash", "https://unsplash.com", "免费高质量图片素材库，摄影师分享作品的开放平台"],
-        ];
+<header class="header">
+  <h1>116导航</h1>
+  <div class="subtitle">全球权重前116名 · 网站快捷入口</div>
+  <div class="source-note" id="sourceNote">数据加载中...</div>
+</header>
+<main class="grid" id="grid"></main>
+<script>
+const fallbackSites = [];
 
-        const grid = document.getElementById('grid');
-        sites.forEach((site, i) => {
-            const rank = i + 1;
-            const a = document.createElement('a');
-            a.className = 'item';
-            a.href = site[1];
-            a.target = '_blank';
-            a.rel = 'noopener noreferrer';
-            let rankClass = 'rank';
-            if (rank <= 3) rankClass += ' top3';
-            else if (rank <= 10) rankClass += ' top10';
-            a.innerHTML = `<span class="${rankClass}">${rank}</span><div class="info"><div class="name">${site[0]}</div><div class="desc">${site[2]}</div></div>`;
-            grid.appendChild(a);
-        });
-    </script>
+const countryByTld = {
+  cn:"中国", hk:"中国", tw:"中国", jp:"日本", kr:"韩国", ru:"俄罗斯",
+  uk:"英国", de:"德国", fr:"法国", in:"印度", au:"澳大利亚", ca:"加拿大",
+  sg:"新加坡", nl:"荷兰", se:"瑞典", br:"巴西", it:"意大利", es:"西班牙"
+};
+
+function guessCountry(domain) {
+  const tld = domain.split(".").pop().toLowerCase();
+  if (countryByTld[tld]) return countryByTld[tld];
+  return "美国";
+}
+
+function logoUrl(domain) {
+  return "https://www.google.com/s2/favicons?domain=" + encodeURIComponent(domain) + "&sz=128";
+}
+
+function escapeHtml(str) {
+  return String(str).replace(/[&<>"']/g, s => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[s]));
+}
+
+function render(list) {
+  const grid = document.getElementById("grid");
+  grid.innerHTML = "";
+  list.slice(0,116).forEach((site, index) => {
+    const rank = site.rank || index + 1;
+    const domain = (site.domain || site.url || "").replace(/^https?:\/\//,"");
+    if (!domain) return;
+    const country = site.country || guessCountry(domain);
+    const desc = site.desc || "全球高权重网站";
+    const name = site.name || domain.replace(/^www\./,"").split(".")[0];
+    const a = document.createElement("a");
+    a.className = "item";
+    a.href = "https://" + domain;
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+    a.dataset.country = country;
+    let rankClass = "rank";
+    if (rank <= 3) rankClass += " top3";
+    else if (rank <= 10) rankClass += " top10";
+    a.innerHTML = `
+      <span class="${rankClass}">${rank}</span>
+      <img class="logo" src="${logoUrl(domain)}" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="info">
+        <div class="name-row">
+          <div class="name">${escapeHtml(name)}</div>
+          <span class="badge">${escapeHtml(country)}</span>
+        </div>
+        <div class="desc">${escapeHtml(desc)}</div>
+        <div class="domain">${escapeHtml(domain)}</div>
+      </div>`;
+    grid.appendChild(a);
+  });
+}
+
+async function init() {
+  const note = document.getElementById("sourceNote");
+  try {
+    const res = await fetch("./sites.json", { cache: "no-store" });
+    if (!res.ok) throw new Error("sites.json not found");
+    const data = await res.json();
+    const list = Array.isArray(data) ? data : data.sites;
+    render(list);
+    const source = data.source === "tranco" ? "Tranco 自动更新" : "备用数据";
+    note.innerHTML = `${source}<br>更新日期：${escapeHtml(data.updatedAt || "未标注")}`;
+  } catch (e) {
+    render(fallbackSites);
+    note.innerHTML = `备用数据<br>sites.json 加载失败`;
+  }
+}
+init();
+</script>
 </body>
 </html>
