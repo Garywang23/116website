@@ -53,13 +53,36 @@ def load_old():
 
 def build_sitemap():
     today=date.today().isoformat()
-    pages=['index.html','top-websites.html','ai-tools.html','social-media.html','cross-border.html','ecommerce.html','developer-tools.html','news-media.html','free-images.html','education.html','china-websites.html','tech-tools.html','en/index.html']
-    smap='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-    for p in pages:
+    # (path, priority) — 只包含仓库中真实存在的页面
+    pages=[
+        ('index.html','1.0'),
+        ('en/index.html','0.9'),
+        ('top-websites.html','0.9'),
+        ('ai-tools.html','0.8'),
+        ('social-media.html','0.8'),
+        ('ecommerce.html','0.8'),
+        ('cross-border.html','0.8'),
+        ('developer-tools.html','0.8'),
+        ('tech-tools.html','0.8'),
+        ('news-media.html','0.8'),
+        ('education.html','0.8'),
+        ('free-images.html','0.8'),
+        ('china-websites.html','0.8'),
+    ]
+    smap='<?xml version="1.0" encoding="UTF-8"?>\n'
+    smap+='<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n'
+    smap+='        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
+    for p,pr in pages:
         loc='https://116.ccwu.cc/' if p=='index.html' else 'https://116.ccwu.cc/'+p
-        pr='1.0' if p=='index.html' else '0.8'
-        smap+=f'  <url><loc>{loc}</loc><lastmod>{today}</lastmod><changefreq>daily</changefreq><priority>{pr}</priority></url>\n'
-    smap+='</urlset>\n'; Path('sitemap.xml').write_text(smap,encoding='utf-8')
+        smap+=f'  <url>\n    <loc>{loc}</loc>\n'
+        # 为中英首页附加 hreflang 链接
+        if p in ('index.html','en/index.html'):
+            smap+='    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://116.ccwu.cc/"/>\n'
+            smap+='    <xhtml:link rel="alternate" hreflang="en" href="https://116.ccwu.cc/en/index.html"/>\n'
+            smap+='    <xhtml:link rel="alternate" hreflang="x-default" href="https://116.ccwu.cc/"/>\n'
+        smap+=f'    <lastmod>{today}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>{pr}</priority>\n  </url>\n'
+    smap+='</urlset>\n'
+    Path('sitemap.xml').write_text(smap,encoding='utf-8')
 
 def main():
     old=load_old()
@@ -67,8 +90,10 @@ def main():
         domains=fetch_tranco(); print('Fetched Tranco safe list:',len(domains))
     except Exception as e:
         print('Fetch failed, keeping current sites.json:',e)
-        with open('sites.json','r',encoding='utf-8') as f: sites=json.load(f)[:LIMIT]
-        build_sitemap(); return
+        with open('sites.json','r',encoding='utf-8') as f:
+            sites=json.load(f)[:LIMIT]
+        build_sitemap()
+        return
     sites=[]
     for i,d in enumerate(domains,1):
         o=old.get(d,{})
@@ -86,4 +111,7 @@ def main():
         })
     Path('sites.json').write_text(json.dumps(sites,ensure_ascii=False,indent=2),encoding='utf-8')
     build_sitemap()
-if __name__=='__main__': main()
+
+if __name__=='__main__':
+    main()
+

@@ -4,28 +4,70 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>全球网站排名前116名｜高权重网站导航｜116导航</title>
-  <meta name="description" content="高权重网站导航 · AI / 社交 / 电商 / 新闻 / 开发者工具分类入口">
-  <meta name="robots" content="index,follow">
+  <meta name="description" content="116导航收录全球排名前116的高权重网站，覆盖AI工具、社交媒体、跨境电商、开发者工具、新闻媒体和教育学习，每日自动更新排名变化。">
+  <meta name="keywords" content="网站导航,全球网站排名,高权重网站,AI工具导航,跨境电商网站,开发者工具,116导航">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+  <meta name="author" content="116导航">
+  <meta name="theme-color" content="#1a73e8">
   <link rel="canonical" href="https://116.ccwu.cc/">
   <link rel="alternate" hreflang="zh-CN" href="https://116.ccwu.cc/">
   <link rel="alternate" hreflang="en" href="https://116.ccwu.cc/en/index.html">
   <link rel="alternate" hreflang="x-default" href="https://116.ccwu.cc/">
+  <link rel="icon" href="https://www.google.com/s2/favicons?domain=116.ccwu.cc&sz=64" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="116导航">
+  <meta property="og:title" content="全球网站排名前116名｜116导航">
+  <meta property="og:description" content="高权重网站导航 · AI / 社交 / 电商 / 新闻 / 开发者工具分类入口，每日自动更新排名。">
+  <meta property="og:url" content="https://116.ccwu.cc/">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:image" content="https://116.ccwu.cc/og-image.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="全球网站排名前116名｜116导航">
+  <meta name="twitter:description" content="高权重网站导航 · AI / 社交 / 电商 / 新闻 / 开发者工具分类入口。">
+  <meta name="twitter:image" content="https://116.ccwu.cc/og-image.png">
+
+  <link rel="preconnect" href="https://www.google.com" crossorigin>
+  <link rel="dns-prefetch" href="https://www.google.com">
+
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "116导航",
+    "alternateName": "116 Navigation",
+    "url": "https://116.ccwu.cc/",
+    "description": "全球高权重网站排名导航和分类入口，每日自动更新。",
+    "inLanguage": "zh-CN",
+    "publisher": {
+      "@type": "Organization",
       "name": "116导航",
-      "url": "https://116.ccwu.cc/",
-      "description": "全球高权重网站排名导航和分类入口",
-      "inLanguage": "zh-CN"
+      "url": "https://116.ccwu.cc/"
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://116.ccwu.cc/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
     }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"首页","item":"https://116.ccwu.cc/"}
+    ]
+  }
   </script>
 </head>
 <body>
   <div class="wrap">
-    <nav class="topbar">
-      <a href="index.html" class="active">首页</a>
+    <nav class="topbar" aria-label="主导航">
+      <a href="index.html" class="active" aria-current="page">首页</a>
       <a href="top-websites.html">全球排名</a>
       <a href="ai-tools.html">AI工具</a>
       <a href="social-media.html">社交媒体</a>
@@ -36,7 +78,7 @@
       <a href="free-images.html">免费素材</a>
       <a href="education.html">教育学习</a>
       <a href="china-websites.html">中国网站</a>
-      <a href="en/index.html">English</a>
+      <a href="en/index.html" hreflang="en">English</a>
     </nav>
 
     <header class="header">
@@ -44,7 +86,7 @@
     </header>
 
     <section class="controls">
-      <div class="filters">
+      <div class="filters" role="group" aria-label="分类筛选">
         <button class="filter-btn" data-filter="">全部</button>
         <button class="filter-btn" data-filter="AI">AI</button>
         <button class="filter-btn" data-filter="社交">社交</button>
@@ -58,8 +100,7 @@
       <div class="stats" id="stats"></div>
     </section>
 
-    <main class="grid" id="grid"></main>
-
+    <main class="grid" id="grid" aria-live="polite"></main>
   </div>
 
   <script>
