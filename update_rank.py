@@ -56,7 +56,7 @@ def build_sitemap():
     pages=['index.html','top-websites.html','ai-tools.html','social-media.html','cross-border.html','ecommerce.html','developer-tools.html','news-media.html','free-images.html','education.html','china-websites.html','tech-tools.html','en/index.html']
     smap='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     for p in pages:
-        loc='https://116.ccwu.cc/' if p=='index.html' else 'https://116.ccwu.cc/'+p
+        loc='https://daohang.116.ccwu.cc/' if p=='index.html' else 'https://daohang.116.ccwu.cc/'+p
         pr='1.0' if p=='index.html' else '0.8'
         smap+=f'  <url><loc>{loc}</loc><lastmod>{today}</lastmod><changefreq>daily</changefreq><priority>{pr}</priority></url>\n'
     smap+='</urlset>\n'; Path('sitemap.xml').write_text(smap,encoding='utf-8')
