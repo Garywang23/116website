@@ -16,31 +16,7 @@ html{scroll-behavior:smooth}
   --chip-text:#476079;
 }
 
-@media (prefers-color-scheme: dark){
-  :root{
-    --text:#e6e8ee;
-    --muted:#9aa4b2;
-    --line:#1f2733;
-    --card:#141a23;
-    --shadow:0 10px 28px rgba(0,0,0,.45);
-    --bg:#0b0f15;
-    --chip-bg:#141a23;
-    --chip-text:#c5cdd9;
-  }
-  body{background:var(--bg) !important;color:var(--text)}
-  .topbar a{background:var(--chip-bg);border-color:var(--line);color:var(--chip-text)}
-  .topbar a:hover,.topbar a.active{background:#1a2638;border-color:#28425f;color:#a9c8ff}
-  .searchbox input{background:#141a23;border-color:#283242;color:var(--text)}
-  .filter-btn{background:#141a23;border-color:#283242;color:#c5cdd9}
-  .item,.item[data-country]{background:#141a23 !important;border-color:#1f2733}
-  .name{color:#e6e8ee}
-  .desc{color:#b4bdcb}
-  .domain{color:#7e8a9b}
-  .intro,.seo-section{color:#b4bdcb}
-  .intro{background:#141a23;border-color:#1f2733}
-  .seo-section h2,.seo-section h3{color:#e6e8ee}
-  .logo{background:#1a2230;border-color:rgba(255,255,255,.06)}
-}
+
 
 :focus-visible{outline:2px solid #1a73e8;outline-offset:2px;border-radius:6px}
 
