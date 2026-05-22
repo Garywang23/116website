@@ -1,0 +1,21 @@
+{
+  "name": "116导航 · 全球高权重网站",
+  "short_name": "116导航",
+  "description": "全球网站排名前116名，AI / 社交 / 电商 / 新闻 / 开发者工具分类入口",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#ffffff",
+  "theme_color": "#1a73e8",
+  "lang": "zh-CN",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["navigation", "productivity", "utilities"]
+}
